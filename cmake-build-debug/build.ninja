@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: untitled
+# Project: Dungeon
 # Configurations: Debug
 # =============================================================================
 
@@ -41,40 +41,40 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/Admin/Desktop/ZOO_Dungeon/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target untitled
+# Object build statements for EXECUTABLE target Dungeon
 
 
 #############################################
-# Order-only phony target for untitled
+# Order-only phony target for Dungeon
 
-build cmake_object_order_depends_target_untitled: phony || CMakeFiles/untitled.dir
+build cmake_object_order_depends_target_Dungeon: phony || CMakeFiles/Dungeon.dir
 
-build CMakeFiles/untitled.dir/main.cpp.obj: CXX_COMPILER__untitled_Debug C$:/Users/Admin/Desktop/ZOO_Dungeon/main.cpp || cmake_object_order_depends_target_untitled
-  DEP_FILE = CMakeFiles\untitled.dir\main.cpp.obj.d
+build CMakeFiles/Dungeon.dir/main.cpp.obj: CXX_COMPILER__Dungeon_Debug C$:/Users/Admin/Desktop/ZOO_Dungeon/main.cpp || cmake_object_order_depends_target_Dungeon
+  DEP_FILE = CMakeFiles\Dungeon.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++20
-  OBJECT_DIR = CMakeFiles\untitled.dir
-  OBJECT_FILE_DIR = CMakeFiles\untitled.dir
-  TARGET_COMPILE_PDB = CMakeFiles\untitled.dir\
-  TARGET_PDB = untitled.pdb
+  OBJECT_DIR = CMakeFiles\Dungeon.dir
+  OBJECT_FILE_DIR = CMakeFiles\Dungeon.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Dungeon.dir\
+  TARGET_PDB = Dungeon.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target untitled
+# Link build statements for EXECUTABLE target Dungeon
 
 
 #############################################
-# Link the executable untitled.exe
+# Link the executable Dungeon.exe
 
-build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.cpp.obj
+build Dungeon.exe: CXX_EXECUTABLE_LINKER__Dungeon_Debug CMakeFiles/Dungeon.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\untitled.dir
+  OBJECT_DIR = CMakeFiles\Dungeon.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\untitled.dir\
-  TARGET_FILE = untitled.exe
-  TARGET_IMPLIB = libuntitled.dll.a
-  TARGET_PDB = untitled.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\Dungeon.dir\
+  TARGET_FILE = Dungeon.exe
+  TARGET_IMPLIB = libDungeon.dll.a
+  TARGET_PDB = Dungeon.pdb
 
 
 #############################################
@@ -102,7 +102,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build untitled: phony untitled.exe
+build Dungeon: phony Dungeon.exe
 
 # =============================================================================
 # Folder targets.
@@ -112,7 +112,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/Admin/Desktop/ZOO_Dungeon/cmake-build-debug
 
-build all: phony untitled.exe
+build all: phony Dungeon.exe
 
 # =============================================================================
 # Built-in targets
