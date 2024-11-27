@@ -3,4 +3,4 @@ project(Dungeon)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Dungeon main.cpp)
+add_executable(Dungeon main.cpp Room.cpp Room.h)
