@@ -5,7 +5,7 @@
 #include <vector>
 #include <stdlib.h> // pro rand()
 #include <ctime>   // pro time()
-#include "Room.h";
+#include "Room.h"
 
 
 

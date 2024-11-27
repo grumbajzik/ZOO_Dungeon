@@ -1,3 +1,3 @@
-C:/Users/Admin/Desktop/ZOO_Dungeon/cmake-build-debug/CMakeFiles/Dungeon.dir
-C:/Users/Admin/Desktop/ZOO_Dungeon/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Admin/Desktop/ZOO_Dungeon/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/honza/Documents/ZOO_Dungeon/cmake-build-debug/CMakeFiles/Dungeon.dir
+C:/Users/honza/Documents/ZOO_Dungeon/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/honza/Documents/ZOO_Dungeon/cmake-build-debug/CMakeFiles/rebuild_cache.dir
