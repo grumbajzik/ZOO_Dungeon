@@ -11,7 +11,7 @@
 
 
     Room::Room() {
-        m_room = generateRoom(new Player());
+        m_room = generateRoom();
         m_id = s_id++;
 
     }
@@ -27,23 +27,18 @@
         }
     }
 
-    std::vector<std::vector<std::string>> Room::generateRoom(Player *player) {
+    std::vector<std::vector<std::string>> Room::generateRoom() {
      //   std::srand(std::time(nullptr));
      //   int rows = rand() % 4 + 13;
      //   int cols = rand() % 4 + 13;
         int rows = 7;
         int cols = 7;
 
-        int playerPositionX = player->getPositionX();
-        int playerPositionY = player->getPositionY();
-
         std::vector<std::vector<std::string>> newRoom(rows, std::vector<std::string>(cols));
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < cols; j++) {
-                if(j==0 || j==cols-1 || i==0 || i==rows-1){
+                if(j==0 || j==cols-1 || i==0 || i==rows-1) {
                     newRoom.at(i).at(j) = ('#');
-                }else if (i == playerPositionX && j == playerPositionY) {
-                    newRoom.at(i).at(j) = '*';
                 }else{
                     newRoom[i][j]= (' ');
                 }
@@ -56,9 +51,14 @@ std::vector<std::vector<std::string>> Room::getRoom() {
     return m_room;
 }
 
-void Room::UpdateRoom() {
-
+void Room::updateRoom(int x,int y, bool newPosition) {
+    if (newPosition) {
+        m_room.at(x).at(y) = '*';
+    } else {
+        m_room.at(x).at(y) = ' ';
+    }
 }
+
 
 
 

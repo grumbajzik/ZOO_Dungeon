@@ -8,6 +8,9 @@
 #include <iostream>
 #include <conio.h>
 
+
+#include "Room.h"
+
 struct PlayerPosition {
     int x;
     int y;
@@ -25,7 +28,7 @@ public:
 
     Player();
 
-    void Move();
+    void Move(Room* room);
 
     int getPositionX();
 

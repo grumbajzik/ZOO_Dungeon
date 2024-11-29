@@ -4,6 +4,8 @@
 
 #include "Player.h"
 
+#include <regex>
+
 Player::Player() {
     m_position = {3,3};
     m_deffence = 5;
@@ -33,19 +35,35 @@ float Player::getStrength() {
     return m_strength;
 }
 
-void Player::Move() {
+void Player::Move(Room* room) {
     char input;
-    input = getch();
+    input = _getch();
 
     switch (input) {
         case 'w':
-            m_position.y += 1;
-        case 's':
-            m_position.y -= 1;
-        case 'a':
+            room->updateRoom(getPositionX(),getPositionY(), false);
             m_position.x -= 1;
-        case 'd':
+            room->updateRoom(getPositionX(),getPositionY(), true);
+            break;
+        case 's':
+            room->updateRoom(getPositionX(),getPositionY(), false);
             m_position.x += 1;
+            room->updateRoom(getPositionX(),getPositionY(), true);
+            break;
+        case 'a':
+            room->updateRoom(getPositionX(),getPositionY(), false);
+            m_position.y -= 1;
+            room->updateRoom(getPositionX(),getPositionY(), true);
+            break;
+        case 'd':
+            room->updateRoom(getPositionX(),getPositionY(), false);
+            m_position.y += 1;
+            room->updateRoom(getPositionX(),getPositionY(), true);
+            break;
+        default:
+            break;
     }
+
+
 }
 int Player::s_level = 1;

@@ -2,12 +2,14 @@
 // Created by Admin on 14.10.2024.
 //
 
-#ifndef ROOM_H;
-#define ROOM_H;
+#ifndef ROOM_H
+#define ROOM_H
 
 #include <iostream>
 #include <vector>
-#include "Player.h"
+
+
+class Player;
 
 
 class Room{
@@ -16,14 +18,14 @@ public:
     void printRoom();
     int getId();
     std::vector<std::vector<std::string>> getRoom();
-    void UpdateRoom();
+    void updateRoom(int x,int y, bool newPosition);
 
 
 private:
     std::vector<std::vector<std::string>> m_room;
     static int s_id;
     int m_id ;
-    std::vector<std::vector<std::string>> generateRoom(Player* player);
+    std::vector<std::vector<std::string>> generateRoom();
 };
 
 #endif
