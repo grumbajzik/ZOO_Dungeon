@@ -52,14 +52,17 @@ std::vector<std::vector<std::string>> Room::getRoom() {
 }
 
 void Room::updateRoom(int x,int y, bool newPosition) {
-    if (newPosition) {
-        m_room.at(x).at(y) = '*';
-    } else {
-        m_room.at(x).at(y) = ' ';
-    }
+
+     if(m_room[s_id].size()-1 > x && m_room[s_id].size()-1 > y && x > 0 && y > 0) {
+         if (newPosition) {
+             m_room.at(x).at(y) = '*';
+         } else {
+             m_room.at(x).at(y) = ' ';
+         }
+     }
 }
 
 
 
 
-int Room::s_id = 1;
+int Room::s_id = 0;
