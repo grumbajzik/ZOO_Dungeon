@@ -35,9 +35,9 @@ float Player::getStrength() {
     return m_strength;
 }
 
-void Player::Move(Room* room) {
-    char input;
-    input = _getch();
+void Player::Move(Room* room,char input) {
+//    char input;
+//    input = _getch();
 
     switch (input) {
         case 'w':

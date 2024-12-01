@@ -28,7 +28,7 @@ public:
 
     Player();
 
-    void Move(Room* room);
+    void Move(Room* room, char input);
 
     int getPositionX();
 

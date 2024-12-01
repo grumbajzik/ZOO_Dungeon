@@ -7,18 +7,19 @@
 
 int main() {
     // Nastavení generátoru náhodných čísel
-    Room* room = new Room();
-    Player* player = new Player();
-    player->Move(room);
+    Room *room = new Room();
+    Player *player = new Player();
+    player->Move(room, ' ');
+    char input;
+    std::cout << room->getRoom().size() << std::endl;
+    std::cout << room->getId() << std::endl;
 
-    //room->printRoom();
-    std::cout<<room->getRoom().size()<<std::endl;
-    std::cout<<room->getId()<<std::endl;
-
-    while (true) {
-        player->Move(room);
+    for (;;){
+        std::cin>>input;
+        player->Move(room, input);
         room->printRoom();
     }
+
 
 
     std::cout<<"hello"<<std::endl;
