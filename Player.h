@@ -24,11 +24,12 @@ class Player {
     int m_expirience;
     PlayerPosition m_position;
 
+
 public:
 
     Player();
 
-    void Move(Room* room, char input);
+    void Move(Room* room);
 
     int getPositionX();
 
