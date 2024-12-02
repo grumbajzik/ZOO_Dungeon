@@ -44,7 +44,7 @@ void Player::Move(Room* room) {
     switch (input) {
         case 'w':
             room->updateRoom(getPositionX(),getPositionY(), false);
-            if (m_position.x > 1) {
+            if (room->getRoom().at(m_position.x-1).at(m_position.y) == " ") {
                 m_position.x -= 1;
                 room->updateRoom(getPositionX(),getPositionY(), true);
             }else {
@@ -53,7 +53,7 @@ void Player::Move(Room* room) {
             break;
         case 's':
             room->updateRoom(getPositionX(),getPositionY(), false);
-            if ((room->getRoom().at(0).size() - 2) > m_position.x) {
+            if (room->getRoom().at(m_position.x+1).at(m_position.y) == " ") {
                 m_position.x += 1;
                 room->updateRoom(getPositionX(),getPositionY(), true);
             }else {
@@ -62,7 +62,7 @@ void Player::Move(Room* room) {
             break;
         case 'a':
             room->updateRoom(getPositionX(),getPositionY(), false);
-            if (m_position.y > 1) {
+            if (room->getRoom().at(m_position.x).at(m_position.y-1) == " ") {
                 m_position.y -= 1;
                 room->updateRoom(getPositionX(),getPositionY(), true);
             }else {
@@ -71,7 +71,7 @@ void Player::Move(Room* room) {
             break;
         case 'd':
             room->updateRoom(getPositionX(),getPositionY(), false);
-            if (room->getRoom().size() - 2 > m_position.y) {
+            if (room->getRoom().at(m_position.x).at(m_position.y+1) == " ") {
                 m_position.y += 1;
                 room->updateRoom(getPositionX(),getPositionY(), true);
             }else {

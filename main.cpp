@@ -16,13 +16,13 @@ int main() {
     std::cout<<room->getId()<<std::endl;
 
     while (true) {
-        std::cout<<room->getId()<<std::endl;
-        std::cout<<room->getRoom()[room->getId()].size()<<std::endl;
+        player->Move(room);
+        room->printRoom();
+        std::cout<<room->getRoom().size()<<std::endl;
         std::cout<<"X: "<<player->getPositionX()<<std::endl;
         std::cout<<"Y: "<<player->getPositionY()<<std::endl;
 
-        player->Move(room);
-        room->printRoom();
+
     }
 
 

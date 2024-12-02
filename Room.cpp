@@ -19,8 +19,8 @@
         return m_id;
     }
     void Room::printRoom() {
-        for (const auto& row : m_room) {
-            for (const auto& cell : row) {
+        for (auto& row : m_room) {
+            for (auto& cell : row) {
                 std::cout << cell << " ";
             }
             std::cout << std::endl;
