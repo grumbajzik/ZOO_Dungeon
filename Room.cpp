@@ -28,11 +28,11 @@
     }
 
     std::vector<std::vector<std::string>> Room::generateRoom() {
-     //   std::srand(std::time(nullptr));
-     //   int rows = rand() % 4 + 13;
-     //   int cols = rand() % 4 + 13;
-        int rows = 7;
-        int cols = 7;
+        std::srand(std::time(nullptr));
+        int rows = rand() % 4 + 13;
+        int cols = rand() % 4 + 13;
+    //    int rows = 7;
+    //    int cols = 7;
 
         std::vector<std::vector<std::string>> newRoom(rows, std::vector<std::string>(cols));
         for (int i = 0; i < rows; i++){

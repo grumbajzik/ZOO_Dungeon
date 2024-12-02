@@ -53,7 +53,7 @@ void Player::Move(Room* room) {
             break;
         case 's':
             room->updateRoom(getPositionX(),getPositionY(), false);
-            if (room->getRoom()[room->getId()].size() - 2> m_position.x) {
+            if ((room->getRoom().at(0).size() - 2) > m_position.x) {
                 m_position.x += 1;
                 room->updateRoom(getPositionX(),getPositionY(), true);
             }else {
@@ -71,7 +71,7 @@ void Player::Move(Room* room) {
             break;
         case 'd':
             room->updateRoom(getPositionX(),getPositionY(), false);
-            if (room->getRoom()[room->getId()].size() - 2 > m_position.y) {
+            if (room->getRoom().size() - 2 > m_position.y) {
                 m_position.y += 1;
                 room->updateRoom(getPositionX(),getPositionY(), true);
             }else {
