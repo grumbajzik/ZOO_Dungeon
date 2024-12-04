@@ -6,8 +6,7 @@
 #define PLAYER_H
 
 #include <iostream>
-#include <conio.h>
-
+#include <stdlib.h>
 
 #include "Room.h"
 
@@ -29,7 +28,7 @@ public:
 
     Player();
 
-    void Move(Room* room);
+    void Move(Room* room,char iput);
 
     int getPositionX();
 

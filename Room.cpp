@@ -6,6 +6,7 @@
 #include <stdlib.h> // pro rand()
 #include <ctime>   // pro time()
 #include "Room.h"
+#include <conio.h>
 
 
 
@@ -19,6 +20,7 @@
         return m_id;
     }
     void Room::printRoom() {
+        clearRoom();
         for (auto& row : m_room) {
             for (auto& cell : row) {
                 std::cout << cell << " ";
@@ -27,12 +29,24 @@
         }
     }
 
+    void Room::refreshRoom() {
+        //clearRoom();
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);  //ukazatel na obrazovku
+        SetConsoleCursorPosition(hConsole, {0, 0});   //nastaveni na 0,0
+        for (auto& row : m_room) {
+            std::string value = "";
+            for (auto& cell : row) {
+                value += (cell + " ");
+            }
+            std::cout << value << std::endl;
+        }
+    }
+
     std::vector<std::vector<std::string>> Room::generateRoom() {
         std::srand(std::time(nullptr));
         int rows = rand() % 4 + 13;
         int cols = rand() % 4 + 13;
-    //    int rows = 7;
-    //    int cols = 7;
+
 
         std::vector<std::vector<std::string>> newRoom(rows, std::vector<std::string>(cols));
         for (int i = 0; i < rows; i++){
@@ -49,7 +63,7 @@
 
 std::vector<std::vector<std::string>> Room::getRoom() {
     return m_room;
-}
+    }
 
 void Room::updateRoom(int x,int y, bool newPosition) {
          if (newPosition) {
@@ -57,7 +71,12 @@ void Room::updateRoom(int x,int y, bool newPosition) {
          } else {
              m_room.at(x).at(y) = ' ';
          }
-}
+    }
+
+
+void Room::clearRoom() {
+        system("cls");
+    }
 
 
 

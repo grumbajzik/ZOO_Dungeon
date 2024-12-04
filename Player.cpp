@@ -4,8 +4,6 @@
 
 #include "Player.h"
 
-#include <regex>
-
 Player::Player() {
     m_position = {3,3};
     m_deffence = 5;
@@ -37,49 +35,32 @@ float Player::getStrength() {
 
 
 
-void Player::Move(Room* room) {
-    char input;
-    input = _getch();
-
+void Player::Move(Room* room, char input) {
+    room->updateRoom(m_position.x,m_position.y, false);
     switch (input) {
         case 'w':
-            room->updateRoom(getPositionX(),getPositionY(), false);
             if (room->getRoom().at(m_position.x-1).at(m_position.y) == " ") {
                 m_position.x -= 1;
-                room->updateRoom(getPositionX(),getPositionY(), true);
-            }else {
-                room->updateRoom(getPositionX(),getPositionY(), true);
             }
             break;
         case 's':
-            room->updateRoom(getPositionX(),getPositionY(), false);
             if (room->getRoom().at(m_position.x+1).at(m_position.y) == " ") {
                 m_position.x += 1;
-                room->updateRoom(getPositionX(),getPositionY(), true);
-            }else {
-                room->updateRoom(getPositionX(),getPositionY(), true);
             }
             break;
         case 'a':
-            room->updateRoom(getPositionX(),getPositionY(), false);
             if (room->getRoom().at(m_position.x).at(m_position.y-1) == " ") {
                 m_position.y -= 1;
-                room->updateRoom(getPositionX(),getPositionY(), true);
-            }else {
-                room->updateRoom(getPositionX(),getPositionY(), true);
-            }
+             }
             break;
         case 'd':
-            room->updateRoom(getPositionX(),getPositionY(), false);
             if (room->getRoom().at(m_position.x).at(m_position.y+1) == " ") {
                 m_position.y += 1;
-                room->updateRoom(getPositionX(),getPositionY(), true);
-            }else {
-                room->updateRoom(getPositionX(),getPositionY(), true);
             }
             break;
         default:
             break;
     }
+    room->updateRoom(getPositionX(),getPositionY(), true);
 }
 int Player::s_level = 1;

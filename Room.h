@@ -7,15 +7,15 @@
 
 #include <iostream>
 #include <vector>
+#include <windows.h>
 
-
-class Player;
 
 
 class Room{
 public:
     Room();
     void printRoom();
+    void refreshRoom();
     int getId();
     std::vector<std::vector<std::string>> getRoom();
     void updateRoom(int x,int y, bool newPosition);
@@ -26,6 +26,7 @@ private:
     static int s_id;
     int m_id ;
     std::vector<std::vector<std::string>> generateRoom();
+    void clearRoom();
 };
 
 #endif

@@ -1,39 +1,31 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
-
+#include <stdio.h>
+#include <conio.h>
 
 #include "Room.h"
 #include "Player.h"
 
-#ifdef _WIN32
-#define CLEAR "cls"
-#define RESET "mode con: cols=1 lines=1 && mode con: cols=80 lines=25"
-#else
-#define CLEAR "clear"
-#define RESET "reset"
-#endif
+
+
 
 int main() {
-    // Nastavení generátoru náhodných čísel
+
     Room* room = new Room();
     Player* player = new Player();
-    player->Move(room);
+    player->Move(room,'f');
 
-    //room->printRoom();
     std::cout<<room->getRoom().size()<<std::endl;
     std::cout<<room->getId()<<std::endl;
 
+    room->printRoom();
     while (true) {
-        player->Move(room);
-        system(CLEAR);
-        system(RESET);
-
-        room->printRoom();
+        while (kbhit() != 0) {
+            char input = getch();
+            player->Move(room,input);
+            room->refreshRoom();
+        }
     }
-
-
-    std::cout<<"hello"<<std::endl;
 
     return 0;
 }
