@@ -20,6 +20,13 @@ int Player::getPositionY() {
     return m_position.y;
 }
 
+int Player::getWeaponPositionX() {
+    return m_weaponPosition.x;
+}
+
+int Player::getWeaponPositionY() {
+    return m_weaponPosition.y;
+}
 
 float Player::getDefence() {
     return m_deffence;
@@ -35,8 +42,8 @@ float Player::getStrength() {
 
 
 
-void Player::Move(Room* room, char input) {
-    room->updateRoom(m_position.x,m_position.y, false);
+void Player::move(Room* room, char input) {
+    room->updatePlayerPosition(m_position.x,m_position.y, false);
     switch (input) {
         case 'w':
             if (room->getRoom().at(m_position.x-1).at(m_position.y) == " ") {
@@ -61,6 +68,37 @@ void Player::Move(Room* room, char input) {
         default:
             break;
     }
-    room->updateRoom(getPositionX(),getPositionY(), true);
+    room->updatePlayerPosition(m_position.x,m_position.y, true);
 }
+
+void Player::attack(Room *room, char input) {
+    int arrow = static_cast<int>(input);
+    m_weaponPosition.x = m_position.x;
+    m_weaponPosition.x = m_position.y;
+
+    switch (arrow) {
+        case 72:
+            std::cout << "sipka nahoru"<<std::endl;
+            m_weaponPosition.y = m_position.y + 1;
+            break;
+        case 80:
+            std::cout << "sipka dolu"<<std::endl;
+            m_weaponPosition.y = m_position.y - 1;
+            break;
+        case 75:
+            std::cout << "sipka doleva"<<std::endl;
+            m_weaponPosition.x = m_position.x - 1;
+            break;
+        case 77:
+            std::cout << "sipka doprava"<<std::endl;
+            m_weaponPosition.x = m_position.x + 1;
+            break;
+        default:
+            break;
+    }
+    room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y);
+}
+
+
+
 int Player::s_level = 1;
