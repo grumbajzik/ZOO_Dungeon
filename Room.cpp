@@ -30,7 +30,6 @@
     }
 
     void Room::refreshRoom() {
-        //clearRoom();
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);  //ukazatel na obrazovku
         SetConsoleCursorPosition(hConsole, {0, 0});   //nastaveni na 0,0
         for (auto& row : m_room) {
@@ -65,7 +64,7 @@ std::vector<std::vector<std::string>> Room::getRoom() {
     return m_room;
     }
 
-void Room::updateRoom(int x,int y, bool newPosition) {
+void Room::updatePlayerPosition(int x,int y, bool newPosition) {
          if (newPosition) {
              m_room.at(x).at(y) = '*';
          } else {
@@ -73,11 +72,17 @@ void Room::updateRoom(int x,int y, bool newPosition) {
          }
     }
 
+void Room::drawPlayerAttack(int x, int y, bool isAttack) {
+        if (x < m_room.size()-1 && y < m_room[0].size()-1 && x > 0 && y > 0) {
+            if (isAttack) {
+                m_room.at(x).at(y) = '-';
+            }
+        }
+    }
 
 void Room::clearRoom() {
         system("cls");
     }
-
 
 
 

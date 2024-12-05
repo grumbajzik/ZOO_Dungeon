@@ -13,17 +13,24 @@ int main() {
 
     Room* room = new Room();
     Player* player = new Player();
-    player->Move(room,'f');
 
     std::cout<<room->getRoom().size()<<std::endl;
     std::cout<<room->getId()<<std::endl;
 
+    player->move(room,'f');
     room->printRoom();
+
+
     while (true) {
         while (kbhit() != 0) {
             char input = getch();
-            player->Move(room,input);
+
+            player->attack(room,input);
+            player->move(room,input);
+
             room->refreshRoom();
+
+
         }
     }
 

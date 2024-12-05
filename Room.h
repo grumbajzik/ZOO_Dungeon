@@ -18,7 +18,8 @@ public:
     void refreshRoom();
     int getId();
     std::vector<std::vector<std::string>> getRoom();
-    void updateRoom(int x,int y, bool newPosition);
+    void updatePlayerPosition(int x,int y, bool newPosition);
+    void drawPlayerAttack(int x,int y, bool isAttack);
 
 
 private:

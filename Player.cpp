@@ -74,29 +74,38 @@ void Player::move(Room* room, char input) {
 void Player::attack(Room *room, char input) {
     int arrow = static_cast<int>(input);
     m_weaponPosition.x = m_position.x;
-    m_weaponPosition.x = m_position.y;
+    m_weaponPosition.y = m_position.y;
+    std::cout << m_weaponPosition.x << " " << m_weaponPosition.y << std::endl;
+    room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, false);
+
 
     switch (arrow) {
         case 72:
             std::cout << "sipka nahoru"<<std::endl;
-            m_weaponPosition.y = m_position.y + 1;
+            m_weaponPosition.x -= 1;
+            std::cout << m_weaponPosition.x << " " << m_weaponPosition.y << std::endl;
             break;
         case 80:
             std::cout << "sipka dolu"<<std::endl;
-            m_weaponPosition.y = m_position.y - 1;
+            m_weaponPosition.x += 1;
+            std::cout << m_weaponPosition.x << " " << m_weaponPosition.y << std::endl;
             break;
         case 75:
             std::cout << "sipka doleva"<<std::endl;
-            m_weaponPosition.x = m_position.x - 1;
+            m_weaponPosition.y -= 1;
+            std::cout << m_weaponPosition.x << " " << m_weaponPosition.y << std::endl;
             break;
         case 77:
             std::cout << "sipka doprava"<<std::endl;
-            m_weaponPosition.x = m_position.x + 1;
+            m_weaponPosition.y += 1;
+            std::cout << m_weaponPosition.x << " " << m_weaponPosition.y << std::endl;
             break;
         default:
+            room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, false);
             break;
     }
-    room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y);
+    room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, true);
+
 }
 
 

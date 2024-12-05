@@ -22,17 +22,22 @@ class Player {
     static int s_level;
     int m_expirience;
     PlayerPosition m_position;
+    PlayerPosition m_weaponPosition;
 
 
 public:
 
     Player();
 
-    void Move(Room* room,char iput);
+    void move(Room* room,char input);
+
+    void attack(Room* room,char input);
 
     int getPositionX();
-
     int getPositionY();
+
+    int getWeaponPositionX();
+    int getWeaponPositionY();
 
     float getHealth();
 
