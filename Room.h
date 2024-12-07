@@ -26,6 +26,7 @@ private:
     std::vector<std::vector<std::string>> m_room;
     static int s_id;
     int m_id ;
+    std::pair<int,int> m_lastAttack;
     std::vector<std::vector<std::string>> generateRoom();
     void clearRoom();
 };

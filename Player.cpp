@@ -78,7 +78,6 @@ void Player::attack(Room *room, char input) {
     std::cout << m_weaponPosition.x << " " << m_weaponPosition.y << std::endl;
     room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, false);
 
-
     switch (arrow) {
         case 72:
             std::cout << "sipka nahoru"<<std::endl;
