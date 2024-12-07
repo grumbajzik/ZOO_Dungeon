@@ -16,42 +16,31 @@ struct PlayerPosition {
 };
 
 class Player {
+protected:
     float m_health;
     float m_strength;
     float m_deffence;
     static int s_level;
     int m_expirience;
     PlayerPosition m_position;
-    PlayerPosition m_weaponPosition;
-    PlayerPosition m_bulletPosition;
-
-    int m_attackRange;
-
 
 public:
 
-    Player();
+    Player(float health, float strength, float defence);
 
     void move(Room* room,char input);
 
-    void attack(Room* room,char input);
-
-    void attackOnDistance(Room* room,char input);
+    virtual void attack(Room* room,char input) = 0;
 
     int getPositionX();
-    int getPositionY();
 
-    int getWeaponPositionX();
-    int getWeaponPositionY();
+    int getPositionY();
 
     float getHealth();
 
     float getStrength();
 
     float getDefence();
-
-    int getAttackRange();
-
 
 };
 

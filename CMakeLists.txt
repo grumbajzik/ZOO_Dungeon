@@ -5,4 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Dungeon main.cpp Room.cpp Room.h
         Player.cpp
-        Player.h)
+        Player.h
+        Archer.cpp
+        Archer.h
+        Warrior.cpp
+        Warrior.h)
