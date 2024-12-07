@@ -6,12 +6,13 @@
 #include <stdlib.h> // pro rand()
 #include <ctime>   // pro time()
 #include "Room.h"
+
+#include <chrono>
 #include <conio.h>
+#include <thread>
 
 
-
-
-    Room::Room() {
+Room::Room() {
         m_room = generateRoom();
         m_id = s_id++;
         m_lastAttack = {-1,-1};
@@ -87,6 +88,39 @@ void Room::drawPlayerAttack(int x, int y, bool isAttack) {
             }
         }
     }
+
+void Room::drawPlayerAttackOnRange(int range,int x,int y,int direction,bool isAttack) {
+        if (isAttack) {
+            for (int i = 0; i < range; i++) {
+                if (m_room.at(x).at(y) != "#") {
+                    m_room.at(x).at(y) = 'o';
+                    refreshRoom();
+                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                    m_room.at(x).at(y) = ' ';
+                    switch (direction) {
+                        case 1:
+                            x--;
+                        break;
+                        case 2:
+                            x++;
+                        break;
+                        case 3:
+                            y--;
+                        break;
+                        case 4:
+                            y++;
+                        break;
+                        default:
+                            break;
+                    }
+                }else{
+                    m_room.at(x).at(y) = "#";
+                }
+            }
+        }
+    }
+
+
 
 void Room::clearRoom() {
         system("cls");

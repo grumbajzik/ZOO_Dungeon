@@ -25,7 +25,8 @@ int main() {
         while (kbhit() != 0) {
             char input = getch();
 
-            player->attack(room,input);
+            //player->attack(room,input);
+            player->attackOnDistance(room,input);
             player->move(room,input);
 
             room->refreshRoom();

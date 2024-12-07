@@ -10,7 +10,6 @@
 #include <windows.h>
 
 
-
 class Room{
 public:
     Room();
@@ -20,13 +19,14 @@ public:
     std::vector<std::vector<std::string>> getRoom();
     void updatePlayerPosition(int x,int y, bool newPosition);
     void drawPlayerAttack(int x,int y, bool isAttack);
+    void drawPlayerAttackOnRange(int range,int x,int y,int direction,bool isAttack);
 
 
 private:
     std::vector<std::vector<std::string>> m_room;
     static int s_id;
     int m_id ;
-    std::pair<int,int> m_lastAttack;
+    std::pair<int,int> m_lastAttack; //na uchovani posledniho utoku na blizko
     std::vector<std::vector<std::string>> generateRoom();
     void clearRoom();
 };

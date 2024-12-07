@@ -23,6 +23,9 @@ class Player {
     int m_expirience;
     PlayerPosition m_position;
     PlayerPosition m_weaponPosition;
+    PlayerPosition m_bulletPosition;
+
+    int m_attackRange;
 
 
 public:
@@ -32,6 +35,8 @@ public:
     void move(Room* room,char input);
 
     void attack(Room* room,char input);
+
+    void attackOnDistance(Room* room,char input);
 
     int getPositionX();
     int getPositionY();
@@ -44,6 +49,8 @@ public:
     float getStrength();
 
     float getDefence();
+
+    int getAttackRange();
 
 
 };
