@@ -8,7 +8,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-#include "Room.h"
+#include "../Map/Room.h"
 
 struct PlayerPosition {
     int x;

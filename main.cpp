@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <conio.h>
 
-#include "Archer.h"
-#include "Room.h"
-#include "Player.h"
-#include "Warrior.h"
+#include "Player/Archer.h"
+#include "Map/Room.h"
+#include "Player/Player.h"
+#include "Player/Warrior.h"
 
 
 int main() {
