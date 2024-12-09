@@ -38,14 +38,12 @@ int main() {
 
     while (true) {
         while (kbhit() != 0) {
-            char input = _getch();
+            unsigned char input = _getch();
 
             player->attack(room,input);
             player->move(room,input);
 
             room->refreshRoom();
-
-
         }
     }
 

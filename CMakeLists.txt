@@ -9,4 +9,9 @@ add_executable(Dungeon main.cpp Room.cpp Room.h
         Archer.cpp
         Archer.h
         Warrior.cpp
-        Warrior.h)
+        Warrior.h
+        Monster/AbstractMonsterFactory.cpp
+        Monster/AbstractMonsterFactory.h
+        Monster/ArtilleryEnemy.cpp
+        Monster/ArtilleryEnemy.h
+)
