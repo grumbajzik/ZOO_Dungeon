@@ -49,5 +49,7 @@ int main() {
         }
     }
 
+    delete room;
+    delete player;
     return 0;
 }
