@@ -11,6 +11,8 @@
 #include <conio.h>
 #include <thread>
 
+#include "../Player/Player.h"
+
 
 Room::Room() {
     m_room = generateRoom();
@@ -35,6 +37,7 @@ void Room::printRoom() {
 void Room::refreshRoom() {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);  //ukazatel na obrazovku
     SetConsoleCursorPosition(hConsole, {0, 0});   //nastaveni na 0,0
+
     for (auto& row : m_room) {
         std::string value = "";
         for (auto& cell : row) {
@@ -68,9 +71,10 @@ std::vector<std::vector<std::string>> Room::getRoom() {
 
 void Room::updatePlayerPosition(int x,int y, bool newPosition) {
     if (newPosition) {
+        m_playerPreviousMove = m_room.at(x).at(y);
         m_room.at(x).at(y) = '*';
     } else {
-        m_room.at(x).at(y) = ' ';
+        m_room.at(x).at(y) = m_playerPreviousMove;
     }
 }
 
@@ -124,5 +128,19 @@ void Room::drawPlayerAttackOnRange(int range,int x,int y,int direction,bool isAt
 void Room::clearRoom() {
         system("cls");
 }
+
+int Room::getSizeOfRoomX() {
+    return m_room.size();
+}
+
+int Room::getSizeOfRoomY() {
+    return m_room[0].size();
+}
+
+void Room::drawTrap(int x, int y, char trap) {
+    m_room.at(x).at(y) = trap;
+}
+
+
 
 int Room::s_id = 0;

@@ -10,8 +10,18 @@ add_executable(Dungeon main.cpp Map/Room.cpp Map/Room.h
         Player/Archer.h
         Player/Warrior.cpp
         Player/Warrior.h
-        Monster/AbstractMonsterFactory.cpp
-        Monster/AbstractMonsterFactory.h
         Monster/ArtilleryEnemy.cpp
         Monster/ArtilleryEnemy.h
-        )
+        Monster/Monster.cpp
+        Monster/Monster.h
+        Monster/Trap.cpp
+        Monster/Trap.h
+        Monster/CloseCombatEnemy.cpp
+        Monster/CloseCombatEnemy.h
+        Monster/MonsterFactory.cpp
+        Monster/MonsterFactory.h
+        Monster/AtrilleryEnemyFactory.cpp
+        Monster/AtrilleryEnemyFactory.h
+        Monster/CloseCombatEnemyFactory.cpp
+        Monster/CloseCombatEnemyFactory.h
+)

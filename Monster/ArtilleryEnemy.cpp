@@ -4,23 +4,20 @@
 
 #include "ArtilleryEnemy.h"
 
-ArtilleryEnemy::ArtilleryEnemy(int health, int damage, int experience) {
-    m_health = health;
-    m_damage = damage;
-    m_experience = experience;
+ArtilleryEnemy::ArtilleryEnemy(): Monster(100, 20, 100){}
+
+
+
+void ArtilleryEnemy::attack() {
+
 }
 
-int ArtilleryEnemy::getHealth() {
-    return m_health;
+
+void ArtilleryEnemy::deffence() {
+
 }
 
-int ArtilleryEnemy::getDamage() {
-    return m_damage;
-}
 
-int ArtilleryEnemy::getExperience() {
-    return m_experience;
-}
 
 
 

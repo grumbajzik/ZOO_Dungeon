@@ -7,19 +7,17 @@
 
 #include <iostream>
 
-class ArtilleryEnemy {
-    int m_health;
-    int m_damage;
-    int m_experience;
+#include "Monster.h"
+
+class ArtilleryEnemy : public Monster{
+
     public:
 
-    ArtilleryEnemy(int health, int damage, int experience);
+    ArtilleryEnemy();
 
-    int getHealth();
+    void attack() override;
 
-    int getDamage();
-
-    int getExperience();
+    void deffence() override;
 };
 
 

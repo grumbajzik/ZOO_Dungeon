@@ -12,6 +12,16 @@ Player::Player(float health, float strength, float defence) {
     m_strength = strength;
 }
 
+void Player::setHealth(int health) {
+    m_health = health;
+}
+
+bool Player::isAlive() {
+    return m_health > 0;
+}
+
+
+
 int Player::getPositionX() {
     return m_position.x;
 }
@@ -34,24 +44,25 @@ float Player::getStrength() {
 
 void Player::move(Room* room, unsigned char input) {
     room->updatePlayerPosition(m_position.x,m_position.y, false);
+
     switch (input) {
         case 'w':
-            if (room->getRoom().at(m_position.x-1).at(m_position.y) == " ") {
+            if(m_position.x > 1) {
                 m_position.x -= 1;
             }
             break;
         case 's':
-            if (room->getRoom().at(m_position.x+1).at(m_position.y) == " ") {
+            if(m_position.x < room->getSizeOfRoomX()-2){
                 m_position.x += 1;
             }
             break;
         case 'a':
-            if (room->getRoom().at(m_position.x).at(m_position.y-1) == " ") {
+            if(m_position.y > 1) {
                 m_position.y -= 1;
              }
             break;
         case 'd':
-            if (room->getRoom().at(m_position.x).at(m_position.y+1) == " ") {
+            if(m_position.y < room->getSizeOfRoomY()-2){
                 m_position.y += 1;
             }
             break;
@@ -59,6 +70,12 @@ void Player::move(Room* room, unsigned char input) {
             break;
     }
     room->updatePlayerPosition(m_position.x,m_position.y, true);
+}
+
+void Player::printInformation() {
+    std::cout << "health: " << m_health << std::endl;
+    std::cout << "strength: " << m_strength << std::endl;
+    std::cout << "defence: " << m_deffence << std::endl;
 }
 
 int Player::s_level = 1;
