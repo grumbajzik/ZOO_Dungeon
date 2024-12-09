@@ -12,6 +12,13 @@
 int main() {
     Room* room = new Room();
     Player* player = nullptr;
+    std::cout << "###############################\n";
+    std::cout << "#                             #\n";
+    std::cout << "#           DUNGEON           #\n";
+    std::cout << "#                             #\n";
+    std::cout << "###############################\n";
+    system("pause");
+    system("cls");
 
     char choice;
     std::cout << "zvolte postavu a/w"<<std::endl;
