@@ -16,7 +16,7 @@ class Archer: public Player {
 
     Archer();
 
-    void attack(Room* room,char input) override;
+    void attack(Room* room,unsigned char input) override;
 
 };
 

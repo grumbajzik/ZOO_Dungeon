@@ -15,7 +15,7 @@ class Warrior: public Player{
 
     Warrior();
 
-    void attack(Room *room, char input) override;
+    void attack(Room *room, unsigned char input) override;
 };
 
 

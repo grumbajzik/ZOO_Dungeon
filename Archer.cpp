@@ -10,7 +10,7 @@ Archer::Archer(): Player(80,5,8) {
 }
 
 
-void Archer::attack(Room *room, char input) {
+void Archer::attack(Room *room, unsigned char input) {
     int arrow = static_cast<int>(input);
     int direction = -1;
     m_bulletPosition.x = m_position.x;

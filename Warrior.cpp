@@ -9,7 +9,7 @@ Warrior::Warrior(): Player(100,10,15) {
 }
 
 
-void Warrior::attack(Room *room, char input) {
+void Warrior::attack(Room *room,unsigned char input) {
     //utok na blizko
     int arrow = static_cast<int>(input);
     m_weaponPosition.x = m_position.x;

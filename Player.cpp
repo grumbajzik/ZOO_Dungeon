@@ -32,7 +32,7 @@ float Player::getStrength() {
     return m_strength;
 }
 
-void Player::move(Room* room, char input) {
+void Player::move(Room* room, unsigned char input) {
     room->updatePlayerPosition(m_position.x,m_position.y, false);
     switch (input) {
         case 'w':

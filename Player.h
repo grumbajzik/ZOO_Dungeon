@@ -28,9 +28,9 @@ public:
 
     Player(float health, float strength, float defence);
 
-    void move(Room* room,char input);
+    void move(Room* room,unsigned char input);
 
-    virtual void attack(Room* room,char input) = 0;
+    virtual void attack(Room* room,unsigned char input) = 0;
 
     int getPositionX();
 
