@@ -20,22 +20,25 @@ void Warrior::attack(Room *room,unsigned char input) {
         case 72:
             //sipka nahoru
             m_weaponPosition.x -= 1;
+            room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, true);
             break;
         case 80:
             //sipka dolu
             m_weaponPosition.x += 1;
+            room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, true);
             break;
         case 75:
             //sipka doleva
             m_weaponPosition.y -= 1;
+            room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, true);
             break;
         case 77:
             //sipka doprava
             m_weaponPosition.y += 1;
+            room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, true);
             break;
         default:
             room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, false);
             break;
     }
-    room->drawPlayerAttack(m_weaponPosition.x,m_weaponPosition.y, true);
 }
