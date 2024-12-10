@@ -4,7 +4,8 @@
 
 #ifndef MONSTERFACTORY_H
 #define MONSTERFACTORY_H
-#include "Monster.h"
+#include "ArtilleryEnemy.h"
+#include "CloseCombatEnemy.h"
 
 
 //abstrakni tovarna
@@ -12,11 +13,10 @@ class MonsterFactory {
 
 public:
 
-    MonsterFactory();
+    CloseCombatEnemy* createCloseCombatMonster();
 
-    virtual ~MonsterFactory() = default;
+    ArtilleryEnemy* createAritilleryMonster();
 
-    virtual Monster* createMonster() = 0;
 
 
 };

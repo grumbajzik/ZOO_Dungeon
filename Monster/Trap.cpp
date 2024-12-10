@@ -38,5 +38,10 @@ void Trap::treatPlayer(Player* player) {
     }
 }
 
+Trap *Trap::createTrap() {
+    Trap *trap = new Trap();
+}
+
+
 
 

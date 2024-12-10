@@ -4,9 +4,13 @@
 
 #include "ArtilleryEnemy.h"
 
-ArtilleryEnemy::ArtilleryEnemy(): Monster(100, 20, 100){}
+ArtilleryEnemy::ArtilleryEnemy(): Monster(100, 20, 100) {
+    m_artilleryChar = 'A';
+}
 
-
+char ArtilleryEnemy::getArtilleryChar() {
+    return m_artilleryChar;
+}
 
 void ArtilleryEnemy::attack() {
 

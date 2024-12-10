@@ -11,6 +11,8 @@
 
 class ArtilleryEnemy : public Monster{
 
+    char m_artilleryChar;
+
     public:
 
     ArtilleryEnemy();
@@ -18,6 +20,8 @@ class ArtilleryEnemy : public Monster{
     void attack() override;
 
     void deffence() override;
+
+    char getArtilleryChar();
 };
 
 

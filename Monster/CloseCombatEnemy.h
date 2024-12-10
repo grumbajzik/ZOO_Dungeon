@@ -9,9 +9,13 @@
 
 class CloseCombatEnemy : public Monster{
 
+    char m_CloseCombatChar;
+
     public:
 
     CloseCombatEnemy();
+
+    char getCloseCombatChar();
 
     void deffence() override;
 

@@ -23,6 +23,8 @@ public:
 
     Trap();
 
+    static Trap* createTrap();
+
     void makeTrapInRoom(Room *room);
 
     void treatPlayer(Player* player);

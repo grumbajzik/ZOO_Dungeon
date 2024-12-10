@@ -5,6 +5,7 @@
 
 #include "Player/Archer.h"
 #include "Map/Room.h"
+#include "Monster/MonsterFactory.h"
 #include "Monster/Trap.h"
 #include "Player/Player.h"
 #include "Player/Warrior.h"
@@ -13,6 +14,8 @@
 int main() {
     Room* room = new Room();
     Trap* trap = new Trap();
+    MonsterFactory* monsterFactory = new MonsterFactory();
+
     Player* player = nullptr;
     std::cout << "###############################\n";
     std::cout << "#                             #\n";

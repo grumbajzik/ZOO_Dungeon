@@ -20,8 +20,4 @@ add_executable(Dungeon main.cpp Map/Room.cpp Map/Room.h
         Monster/CloseCombatEnemy.h
         Monster/MonsterFactory.cpp
         Monster/MonsterFactory.h
-        Monster/AtrilleryEnemyFactory.cpp
-        Monster/AtrilleryEnemyFactory.h
-        Monster/CloseCombatEnemyFactory.cpp
-        Monster/CloseCombatEnemyFactory.h
 )
