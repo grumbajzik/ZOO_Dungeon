@@ -32,6 +32,7 @@ private:
     int m_id ;
     std::pair<int,int> m_lastAttack; //na uchovani posledniho utoku na blizko
     std::string m_playerPreviousMove = " ";
+    std::string m_attackPrevoiousSign = " ";
     std::vector<std::vector<std::string>> generateRoom();
     void clearRoom();
 };

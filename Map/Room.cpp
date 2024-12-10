@@ -97,10 +97,11 @@ void Room::drawPlayerAttackOnRange(int range,int x,int y,int direction,bool isAt
     if (isAttack) {
         for (int i = 0; i < range; i++) {
             if (m_room.at(x).at(y) != "#") {
+                m_attackPrevoiousSign = m_room.at(x).at(y);
                 m_room.at(x).at(y) = 'o';
                 refreshRoom();
                 std::this_thread::sleep_for(std::chrono::milliseconds(100));
-                m_room.at(x).at(y) = ' ';
+                m_room.at(x).at(y) = m_attackPrevoiousSign;
                 switch (direction) {
                     case 1:
                         x--;
