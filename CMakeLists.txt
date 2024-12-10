@@ -20,4 +20,4 @@ add_executable(Dungeon main.cpp Map/Room.cpp Map/Room.h
         Monster/CloseCombatEnemy.h
         Monster/MonsterFactory.cpp
         Monster/MonsterFactory.h
-)
+        Map/Map.cpp Map/Map.h Map/Tile.cpp Map/Tile.h)

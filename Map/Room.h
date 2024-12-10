@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
+#include "mutex"
 
 
 class Room{
@@ -27,7 +28,9 @@ public:
 
 
 private:
+    std::mutex m_consoleMutex;
     std::vector<std::vector<std::string>> m_room;
+    std::vector<std::vector<std::string>> m_originalRoom;
     static int s_id;
     int m_id ;
     std::pair<int,int> m_lastAttack; //na uchovani posledniho utoku na blizko

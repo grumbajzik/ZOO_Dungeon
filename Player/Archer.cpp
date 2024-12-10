@@ -3,7 +3,7 @@
 //
 
 #include "Archer.h"
-
+#include <thread>
 
 Archer::Archer(): Player(80,5,8) {
     m_attackRange = 4;
@@ -16,31 +16,63 @@ void Archer::attack(Room *room, unsigned char input) {
     m_bulletPosition.x = m_position.x;
     m_bulletPosition.y = m_position.y;
 
+
     room->drawPlayerAttackOnRange(m_attackRange,m_bulletPosition.x,m_bulletPosition.y,direction, false);
 
     switch (arrow) {
-        case 72:
+        case 72: {
             m_bulletPosition.x--;
             direction = 1; //up
-            room->drawPlayerAttackOnRange(m_attackRange,m_bulletPosition.x,m_bulletPosition.y,direction, true);
+            std::thread shootingThread(&Room::drawPlayerAttackOnRange,
+                                        room,
+                                        m_attackRange,
+                                        (m_bulletPosition.x),  // Předání jako reference
+                                        (m_bulletPosition.y),
+                                        direction,
+                                        true);
+            shootingThread.detach();
             break;
-        case 80:
+        }
+        case 80:{
             m_bulletPosition.x++;
             direction = 2; //down
-            room->drawPlayerAttackOnRange(m_attackRange,m_bulletPosition.x,m_bulletPosition.y,direction, true);
+            std::thread shootingThread(&Room::drawPlayerAttackOnRange,
+                                       room,
+                                       m_attackRange,
+                                       (m_bulletPosition.x),  // Předání jako reference
+                                       (m_bulletPosition.y),
+                                       direction,
+                                       true);
+            shootingThread.detach();
             break;
-        case 75:
+        }
+        case 75:{
             m_bulletPosition.y--;
             direction = 3; //left
-            room->drawPlayerAttackOnRange(m_attackRange,m_bulletPosition.x,m_bulletPosition.y,direction, true);
+            std::thread shootingThread(&Room::drawPlayerAttackOnRange,
+                                       room,
+                                       m_attackRange,
+                                       (m_bulletPosition.x),  // Předání jako reference
+                                       (m_bulletPosition.y),
+                                       direction,
+                                       true);
+            shootingThread.detach();
             break;
-        case 77:
+        }
+        case 77:{
             m_bulletPosition.y++;
             direction = 4; //right
-            room->drawPlayerAttackOnRange(m_attackRange,m_bulletPosition.x,m_bulletPosition.y,direction, true);
+            std::thread shootingThread(&Room::drawPlayerAttackOnRange,
+                                       room,
+                                       m_attackRange,
+                                       (m_bulletPosition.x),  // Předání jako reference
+                                       (m_bulletPosition.y),
+                                       direction,
+                                       true);
+            shootingThread.detach();
             break;
+        }
         default:
-            room->drawPlayerAttackOnRange(m_attackRange,m_bulletPosition.x,m_bulletPosition.y,direction, false);
             break;
     }
 }

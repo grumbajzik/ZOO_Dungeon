@@ -2,6 +2,7 @@
 // Created by honza on 29.11.2024.
 //
 
+#include <thread>
 #include "Player.h"
 
 Player::Player(float health, float strength, float defence) {
@@ -43,6 +44,7 @@ float Player::getStrength() {
 }
 
 void Player::move(Room* room, unsigned char input) {
+//    std::this_thread::sleep_for(std::chrono::milliseconds(100));
     room->updatePlayerPosition(m_position.x,m_position.y, false);
 
     switch (input) {
@@ -59,7 +61,7 @@ void Player::move(Room* room, unsigned char input) {
         case 'a':
             if(m_position.y > 1) {
                 m_position.y -= 1;
-             }
+            }
             break;
         case 'd':
             if(m_position.y < room->getSizeOfRoomY()-2){
@@ -73,9 +75,7 @@ void Player::move(Room* room, unsigned char input) {
 }
 
 void Player::printInformation() {
-    std::cout << "health: " << m_health << std::endl;
-    std::cout << "strength: " << m_strength << std::endl;
-    std::cout << "defence: " << m_deffence << std::endl;
+
 }
 
 int Player::s_level = 1;

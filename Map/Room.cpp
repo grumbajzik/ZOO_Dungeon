@@ -16,6 +16,7 @@
 
 Room::Room() {
     m_room = generateRoom();
+    m_originalRoom = m_room;
     m_id = s_id++;
     m_lastAttack = {-1,-1};
 }
@@ -35,16 +36,17 @@ void Room::printRoom() {
 }
 
 void Room::refreshRoom() {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);  //ukazatel na obrazovku
-    SetConsoleCursorPosition(hConsole, {0, 0});   //nastaveni na 0,0
-
-    for (auto& row : m_room) {
+    std::lock_guard<std::mutex> lock(m_consoleMutex); // Zamknutí přístupu
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(hConsole, {0, 0});
+    for (auto &row: m_room) {
         std::string value = "";
-        for (auto& cell : row) {
+        for (auto &cell: row) {
             value += (cell + " ");
         }
         std::cout << value << std::endl;
     }
+//    Player::printInformation();
 }
 
 std::vector<std::vector<std::string>> Room::generateRoom() {
@@ -71,7 +73,7 @@ std::vector<std::vector<std::string>> Room::getRoom() {
 
 void Room::updatePlayerPosition(int x,int y, bool newPosition) {
     if (newPosition) {
-        m_playerPreviousMove = m_room.at(x).at(y);
+        m_playerPreviousMove = m_originalRoom.at(x).at(y);
         m_room.at(x).at(y) = '*';
     } else {
         m_room.at(x).at(y) = m_playerPreviousMove;
@@ -99,10 +101,10 @@ void Room::drawPlayerAttackOnRange(int range,int x,int y,int direction,bool isAt
     if (isAttack) {
         for (int i = 0; i < range; i++) {
             if (m_room.at(x).at(y) != "#") {
-                m_attackPrevoiousSign = m_room.at(x).at(y);
+                m_attackPrevoiousSign = m_originalRoom.at(x).at(y);
                 m_room.at(x).at(y) = 'o';
-                refreshRoom();
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+//                refreshRoom();
+                std::this_thread::sleep_for(std::chrono::milliseconds(70));
                 m_room.at(x).at(y) = m_attackPrevoiousSign;
                 switch (direction) {
                     case 1:
@@ -127,7 +129,6 @@ void Room::drawPlayerAttackOnRange(int range,int x,int y,int direction,bool isAt
     }
 }
 
-
 void Room::clearRoom() {
         system("cls");
 }
@@ -141,6 +142,7 @@ int Room::getSizeOfRoomY() {
 }
 
 void Room::drawTrap(int x, int y, char trap) {
+    m_originalRoom.at(x).at(y) = trap;
     m_room.at(x).at(y) = trap;
 }
 

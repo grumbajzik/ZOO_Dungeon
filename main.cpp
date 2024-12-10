@@ -2,6 +2,7 @@
 #include <vector>
 #include <stdio.h>
 #include <conio.h>
+#include <thread>
 
 #include "Player/Archer.h"
 #include "Map/Room.h"
@@ -9,7 +10,12 @@
 #include "Monster/Trap.h"
 #include "Player/Player.h"
 #include "Player/Warrior.h"
-
+void backgroundRefresh(Room* room) {
+    while (true) {
+        room->refreshRoom();
+        std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Pauza mezi vykreslením
+    }
+}
 
 int main() {
     Room* room = new Room();
@@ -51,13 +57,16 @@ int main() {
             break;
     }
 
+
+
     std::cout<<room->getRoom().size()<<std::endl;
     std::cout<<room->getId()<<std::endl;
     trap->makeTrapInRoom(room);
     player->move(room,'f');
     room->printRoom();
-
-
+    std::thread refreshThread(backgroundRefresh, room);
+    refreshThread.detach();
+    //TODO proč tu jsou dva while cykly?
     while (player->isAlive()) {
         while (kbhit() != 0) {
             unsigned char input = _getch();
@@ -67,7 +76,7 @@ int main() {
 
             trap->treatPlayer(player);
             player->printInformation();
-            room->refreshRoom();
+//            std::thread refreshThread(&Room::refreshRoom, room);
         }
     }
     system("cls");

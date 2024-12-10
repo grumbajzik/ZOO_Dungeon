@@ -18,6 +18,7 @@ class Trap {
     int m_damage;
     char m_symbol;
     TrapPosition m_trapPosition;
+//    std::vector<std::pair<int, int>> position;
 
 public:
 
