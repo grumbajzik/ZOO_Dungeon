@@ -20,4 +20,4 @@ add_executable(Dungeon main.cpp Map/Room.cpp Map/Room.h
         Monster/CloseCombatEnemy.h
         Monster/MonsterFactory.cpp
         Monster/MonsterFactory.h
-        Map/Map.cpp Map/Map.h Map/Tile.cpp Map/Tile.h)
+        Map/Map.cpp Map/Map.h Map/Tile.cpp Map/Tile.h Menu/Command.cpp Menu/Command.h Menu/NewGameButton.cpp Menu/NewGameButton.h Menu/EditPlayerButton.cpp Menu/EditPlayerButton.h Menu/Button.cpp Menu/Button.h Menu/ExitButton.cpp Menu/ExitButton.h Menu/Menu.cpp Menu/Menu.h)

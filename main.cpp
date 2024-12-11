@@ -66,10 +66,9 @@ int main() {
     room->printRoom();
     std::thread refreshThread(backgroundRefresh, room);
     refreshThread.detach();
-    //TODO proč tu jsou dva while cykly?
     while (player->isAlive()) {
-        while (kbhit() != 0) {
             unsigned char input = _getch();
+
 
             player->attack(room,input);
             player->move(room,input);
@@ -77,7 +76,6 @@ int main() {
             trap->treatPlayer(player);
             player->printInformation();
 //            std::thread refreshThread(&Room::refreshRoom, room);
-        }
     }
     system("cls");
     std::cout << "YOU DIED" << std::endl;
