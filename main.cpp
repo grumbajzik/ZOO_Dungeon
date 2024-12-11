@@ -6,6 +6,7 @@
 
 #include "Player/Archer.h"
 #include "Map/Room.h"
+#include "Menu/Menu.h"
 #include "Monster/MonsterFactory.h"
 #include "Monster/Trap.h"
 #include "Player/Player.h"
@@ -17,12 +18,18 @@ void backgroundRefresh(Room* room) {
     }
 }
 
+
+
 int main() {
+
+    Menu* menu = new Menu();
     Room* room = new Room();
     Trap* trap = new Trap();
     MonsterFactory* monsterFactory = new MonsterFactory();
 
     Player* player = nullptr;
+
+    /*
     std::string kokot = "color 0A";
 #ifdef _WIN32
     system("color 0A"); // Zelený text na černém pozadí
@@ -34,7 +41,13 @@ int main() {
     std::cout << "###############################\n";
     system("pause");
     system("cls");
+    */
+    menu->printMenu();
+    while (true) {
+        unsigned char input = _getch();
+        menu->choseCommand(input);
 
+    }
     char choice;
     std::cout << "zvolte postavu a/w"<<std::endl;
     std::cin >> choice;
