@@ -27,6 +27,7 @@ class Menu {
     int m_chosenIndex;
     public:
     Menu();
+    int getchenIndex();
     void printMenu();
     void doSelectedCommand();
     void choseCommand(char input);

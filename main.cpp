@@ -46,7 +46,6 @@ int main() {
     while (true) {
         unsigned char input = _getch();
         menu->choseCommand(input);
-
     }
     char choice;
     std::cout << "zvolte postavu a/w"<<std::endl;
@@ -87,7 +86,7 @@ int main() {
             player->move(room,input);
 
             trap->treatPlayer(player);
-            player->printInformation();
+//            player->printInformation();
 //            std::thread refreshThread(&Room::refreshRoom, room);
     }
     system("cls");
