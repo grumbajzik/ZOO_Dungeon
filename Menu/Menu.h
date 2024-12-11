@@ -6,7 +6,6 @@
 #define DUNGEON_MENU_H
 #include <vector>
 
-#include "Command.h"
 #include "EditPlayerButton.h"
 #include "ExitButton.h"
 #include "NewGameButton.h"
@@ -22,10 +21,12 @@
 
 
 class Menu {
-    std::vector<Command *> m_command;
-    Command* m_chosenCommand;
+    std::vector<Button *> m_buttons;
+    Button* m_chosenCommand;
     int m_chosenIndex;
+
     public:
+
     Menu();
     int getchenIndex();
     void printMenu();

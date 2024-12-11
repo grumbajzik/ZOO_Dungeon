@@ -8,9 +8,9 @@
 
 
 Menu::Menu() {
-    m_command.push_back(new NewGameButton());
-    m_command.push_back(new ExitButton());
-    m_command.push_back(new EditPlayerButton());
+    m_buttons.push_back(new NewGameButton());
+    m_buttons.push_back(new ExitButton());
+    m_buttons.push_back(new EditPlayerButton());
     m_chosenCommand = nullptr;
     m_chosenIndex = 1;
 }

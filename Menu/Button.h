@@ -6,7 +6,6 @@
 #define DUNGEON_BUTTON_H
 
 
-#include "Command.h"
 /*TODO: tady uděláš vlastnosti tlačítka jako je text a jestli je aktivní.
  * Konstruktor kde se aktivní nastaví na false a text který dojde ze vstupu
  * Metoda bude asi hlavně nastavování textu podle toho zda je focusována.
@@ -14,7 +13,10 @@
  * Můžeš za to dát nějaký znak jako třeba o takže tlačítko "New Game" když bude focusováno tak se tam objeví "New Game o"
  */
 
-class Button : public Command{
+//TODO: tady uděláš virtuální metodu execute.
+
+
+class Button{
 
 };
 
