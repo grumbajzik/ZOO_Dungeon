@@ -33,10 +33,8 @@ class Menu {
 public:
 
     Menu();
-    int getchosenIndex();
-    void doSelectedButton();
-    /*void runMenu(char input);
-    ~Menu();*/
+    void runMenu(char input);
+    ~Menu();
     void printMenu();
     void callButton(char input);
     void switchButton(char input);

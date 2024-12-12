@@ -31,15 +31,12 @@ void Menu::printMenu() {
             std::cout << "->";
         } else {
             std::cout << "  ";
-            }
+
+        }
+        m_buttons.at(i)->drawButton();
     }
-
 }
 
-
-void Menu::doSelectedButton() {
-
-}
 
 void Menu::switchButton(char input) {
     input = static_cast<int>(input);
@@ -59,7 +56,7 @@ void Menu::switchButton(char input) {
         default:
             break;
     }
-    m_chosenButton=m_button.at(m_index-1);
+    m_chosenButton=m_buttons.at(m_index-1);
 }
 
 

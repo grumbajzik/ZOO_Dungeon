@@ -13,6 +13,8 @@
 class EditPlayerButton : public Button{
 public:
     EditPlayerButton();
+    void drawButton() override;
+    void execute() override;
 };
 
 

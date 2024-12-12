@@ -14,8 +14,9 @@
 
 class NewGameButton : public Button{
 public:
-NewGameButton();
-
+    NewGameButton();
+    void drawButton() override;
+    void execute() override;
 };
 
 
