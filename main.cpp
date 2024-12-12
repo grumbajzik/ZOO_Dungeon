@@ -56,12 +56,14 @@ int main() {
             break;
     }
 
-    monsterFactory->createMonster(MonsterType::Artillery);
-    monsterFactory->createMonster(MonsterType::CloseCombat);
+    Monster* ar = monsterFactory->createMonster(MonsterType::Artillery);
+    Monster* cl = monsterFactory->createMonster(MonsterType::CloseCombat);
 
     std::cout<<room->getRoom().size()<<std::endl;
     std::cout<<room->getId()<<std::endl;
     trap->makeTrapInRoom(room);
+    ar->makeMonsterInRoom(room);
+    cl->makeMonsterInRoom(room);
     player->move(room,'f');
     room->printRoom();
     std::thread refreshThread(backgroundRefresh, room);

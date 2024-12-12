@@ -28,6 +28,7 @@ void ArtilleryEnemy::makeMonsterInRoom(Room *room) {
 }
 
 
+
 char ArtilleryEnemy::getArtilleryChar() {
     return m_artilleryChar;
 }
