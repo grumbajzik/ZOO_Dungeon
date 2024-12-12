@@ -76,6 +76,8 @@ int main() {
             player->move(room,input);
 
             trap->treatPlayer(player);
+            cl->attack(player,room);
+            ar->attack(player,room);
 //            player->printInformation();
 //            std::thread refreshThread(&Room::refreshRoom, room);
     }

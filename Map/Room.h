@@ -23,6 +23,7 @@ public:
     void drawPlayerAttackOnRange(int range,int x,int y,int direction,bool isAttack);
     void drawTrap(int x, int y, char trap);
     void drawMonster(int x, int y, char sign);
+    void drawArtilleryAttack(int x, int y, bool warning);
 
     int getSizeOfRoomX();
     int getSizeOfRoomY();

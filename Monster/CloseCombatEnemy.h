@@ -19,9 +19,7 @@ class CloseCombatEnemy : public Monster{
 
     char getCloseCombatChar();
 
-    void deffence() override;
-
-    void attack() override;
+    void attack(Player* player, Room* room) override;
 
 };
 

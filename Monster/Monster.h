@@ -8,6 +8,9 @@
 #include <iostream>
 
 #include "../Map/Room.h"
+#include "../Player/Archer.h"
+#include "../Player/Player.h"
+#include "../Player/Warrior.h"
 
 enum class MonsterType {
     Artillery,CloseCombat
@@ -28,7 +31,6 @@ protected:
     int m_experience;
     MonsterPosition m_mosterPosition;
 
-
 public:
 
     Monster(int health, int damage, int experience);
@@ -37,9 +39,11 @@ public:
 
     virtual void makeMonsterInRoom(Room* room) = 0;
 
-    virtual void attack() = 0;
+    virtual void attack(Player* player,Room* room) = 0;
 
-    virtual void deffence() = 0;
+    void defence(Archer* archer);
+
+    void defence(Warrior* warrior);
 
     bool isMonsterAlive();
 

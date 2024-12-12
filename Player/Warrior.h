@@ -15,6 +15,8 @@ class Warrior: public Player{
 
     Warrior();
 
+    PlayerPosition getWeaponPosition();
+
     void attack(Room *room, unsigned char input) override;
 };
 

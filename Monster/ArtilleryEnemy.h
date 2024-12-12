@@ -13,15 +13,15 @@ class ArtilleryEnemy : public Monster{
 
     char m_artilleryChar;
 
+    MonsterPosition m_artilleryAttackPos;
+
     public:
 
     ArtilleryEnemy();
 
     void makeMonsterInRoom(Room *room) override;
 
-    void attack() override;
-
-    void deffence() override;
+    void attack(Player* player, Room* room) override;
 
     char getArtilleryChar();
 };

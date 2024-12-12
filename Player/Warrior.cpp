@@ -8,6 +8,9 @@
 Warrior::Warrior(): Player(100,10,15) {
 }
 
+PlayerPosition Warrior::getWeaponPosition() {
+    return m_weaponPosition;
+}
 
 void Warrior::attack(Room *room,unsigned char input) {
     //utok na blizko

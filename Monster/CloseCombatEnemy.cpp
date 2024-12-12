@@ -32,12 +32,14 @@ char CloseCombatEnemy::getCloseCombatChar() {
     return m_CloseCombatChar;
 }
 
-void CloseCombatEnemy::attack() {
+void CloseCombatEnemy::attack(Player* player,Room* room) {
+    int playerPositionX = player->getPositionX();
+    int playerPositionY = player->getPositionY();
+    int playerHealthAfterDmg = player->getHealth() - m_damage;
 
-}
-
-void CloseCombatEnemy::deffence() {
-
+    if (playerPositionX == m_mosterPosition.x && playerPositionY == m_mosterPosition.y) {
+        player->setHealth(playerHealthAfterDmg);
+    }
 }
 
 

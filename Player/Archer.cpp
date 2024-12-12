@@ -10,6 +10,11 @@ Archer::Archer(): Player(80,5,8) {
     m_attackRange = 4;
 }
 
+PlayerPosition Archer::getBulletPosition() {
+    return m_bulletPosition;
+}
+
+
 
 void Archer::attack(Room *room, unsigned char input) {
     //TODO: tato metoda převádí znak na číslo. Jelikož šipka nahoru není v základních znacích ascii tak se to převede na  224 a pak na 72 proto tato metoda má i getch

@@ -18,6 +18,8 @@ class Archer: public Player {
 
     void attack(Room* room,unsigned char input) override;
 
+    PlayerPosition getBulletPosition();
+
 };
 
 

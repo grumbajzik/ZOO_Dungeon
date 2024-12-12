@@ -4,6 +4,8 @@
 
 #include "ArtilleryEnemy.h"
 
+#include <thread>
+
 ArtilleryEnemy::ArtilleryEnemy(): Monster(100, 20, 100) {
     m_artilleryChar = 'A';
 }
@@ -33,14 +35,22 @@ char ArtilleryEnemy::getArtilleryChar() {
     return m_artilleryChar;
 }
 
-void ArtilleryEnemy::attack() {
+void ArtilleryEnemy::attack(Player* player,Room* room) {
+    int roomSizeX = room->getSizeOfRoomX()-1;
+    int roomSizeY = room->getSizeOfRoomY()-1;
+    int healthAfterDmg = player->getHealth()-m_damage;
 
+    m_artilleryAttackPos.x = std::rand() % roomSizeX;
+    m_artilleryAttackPos.y = std::rand() % roomSizeY;
+
+    room->drawArtilleryAttack(m_artilleryAttackPos.x,m_artilleryAttackPos.y,true);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    room->drawArtilleryAttack(m_artilleryAttackPos.x,m_artilleryAttackPos.y,true);
+    if(m_artilleryAttackPos.x == player->getPositionX() && m_artilleryAttackPos.y == player->getPositionY()) {
+        player->setHealth(healthAfterDmg);
+    }
 }
 
-
-void ArtilleryEnemy::deffence() {
-
-}
 
 
 

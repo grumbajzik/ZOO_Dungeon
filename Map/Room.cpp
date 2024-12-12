@@ -150,6 +150,17 @@ void Room::drawMonster(int x, int y, char sign) {
     m_room.at(x).at(y) = sign;
 }
 
+void Room::drawArtilleryAttack(int x, int y, bool warning) {
+    if (warning) {
+        m_originalRoom.at(x).at(y) = 'X';
+        m_room.at(x).at(y) = 'X';
+    }else {
+        m_originalRoom.at(x).at(y) = '@';
+        m_room.at(x).at(y) = '@';
+    }
+}
+
+
 
 
 int Room::s_id = 0;
