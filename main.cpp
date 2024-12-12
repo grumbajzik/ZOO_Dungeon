@@ -28,25 +28,13 @@ int main() {
     MonsterFactory* monsterFactory = new MonsterFactory();
 
     Player* player = nullptr;
-
     /*
-    std::string kokot = "color 0A";
-#ifdef _WIN32
-    system("color 0A"); // Zelený text na černém pozadí
-#endif
-    std::cout << "###############################\n";
-    std::cout << "#                             #\n";
-    std::cout << "#           DUNGEON           #\n";
-    std::cout << "#                             #\n";
-    std::cout << "###############################\n";
-    system("pause");
-    system("cls");
-    */
     menu->printMenu();
     while (true) {
         unsigned char input = _getch();
         menu->choseCommand(input);
     }
+    */
     char choice;
     std::cout << "zvolte postavu a/w"<<std::endl;
     std::cin >> choice;
