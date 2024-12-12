@@ -11,7 +11,10 @@
  * stejně jako new game button metoda execute bude obsahovat jen exit(0) předtím teoreticky jen nějáký výstup že se hra ukončuje
  * */
 class ExitButton : public Button{
-
+public:
+    ExitButton();
+    void drawButton() override;
+    void execute() override;
 };
 
 

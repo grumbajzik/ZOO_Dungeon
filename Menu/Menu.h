@@ -22,17 +22,25 @@
 
 class Menu {
     std::vector<Button *> m_buttons;
-    Button* m_chosenCommand;
-    int m_chosenIndex;
+    Button* m_chosenButton;
+    int m_index;
+    bool firstRun;
 
-    public:
+
+
+
+
+public:
 
     Menu();
-    int getchenIndex();
+    int getchosenIndex();
+    void doSelectedButton();
+    /*void runMenu(char input);
+    ~Menu();*/
     void printMenu();
-    void doSelectedCommand();
-    void choseCommand(char input);
-
+    void callButton(char input);
+    void switchButton(char input);
+    void refreshMenu();
 };
 
 

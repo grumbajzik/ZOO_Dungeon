@@ -11,7 +11,8 @@
 #include "Button.h"
 
 class EditPlayerButton : public Button{
-
+public:
+    EditPlayerButton();
 };
 
 

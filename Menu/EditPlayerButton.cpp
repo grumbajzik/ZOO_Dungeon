@@ -3,3 +3,7 @@
 //
 
 #include "EditPlayerButton.h"
+EditPlayerButton::EditPlayerButton() {
+
+}
+

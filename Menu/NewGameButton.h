@@ -13,6 +13,8 @@
 
 
 class NewGameButton : public Button{
+public:
+NewGameButton();
 
 };
 
