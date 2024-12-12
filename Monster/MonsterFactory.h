@@ -8,16 +8,14 @@
 #include "CloseCombatEnemy.h"
 
 
-//abstrakni tovarna
+
 class MonsterFactory {
+
+    std::vector<Monster*> m_monsters;
 
 public:
 
-    CloseCombatEnemy* createCloseCombatMonster();
-
-    ArtilleryEnemy* createAritilleryMonster();
-
-
+    Monster* createMonster(MonsterType monsterType);
 
 };
 

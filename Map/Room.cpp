@@ -46,7 +46,6 @@ void Room::refreshRoom() {
         }
         std::cout << value << std::endl;
     }
-//    Player::printInformation();
 }
 
 std::vector<std::vector<std::string>> Room::generateRoom() {
@@ -144,6 +143,11 @@ int Room::getSizeOfRoomY() {
 void Room::drawTrap(int x, int y, char trap) {
     m_originalRoom.at(x).at(y) = trap;
     m_room.at(x).at(y) = trap;
+}
+
+void Room::drawMonster(int x, int y, char sign) {
+    m_originalRoom.at(x).at(y) = sign;
+    m_room.at(x).at(y) = sign;
 }
 
 

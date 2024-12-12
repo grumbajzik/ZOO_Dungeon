@@ -26,7 +26,6 @@ int main() {
     Room* room = new Room();
     Trap* trap = new Trap();
     MonsterFactory* monsterFactory = new MonsterFactory();
-
     Player* player = nullptr;
     /*
     menu->printMenu();
@@ -57,7 +56,8 @@ int main() {
             break;
     }
 
-
+    monsterFactory->createMonster(MonsterType::Artillery);
+    monsterFactory->createMonster(MonsterType::CloseCombat);
 
     std::cout<<room->getRoom().size()<<std::endl;
     std::cout<<room->getId()<<std::endl;
@@ -84,5 +84,6 @@ int main() {
     delete room;
     delete player;
     delete trap;
+    delete monsterFactory;
     return 0;
 }

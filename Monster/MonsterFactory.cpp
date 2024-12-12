@@ -4,13 +4,17 @@
 
 #include "MonsterFactory.h"
 
-ArtilleryEnemy *MonsterFactory::createAritilleryMonster() {
-    ArtilleryEnemy* artilleryEnemy = new ArtilleryEnemy();
-    return artilleryEnemy;
-}
-
-CloseCombatEnemy *MonsterFactory::createCloseCombatMonster() {
-    CloseCombatEnemy* closeCombatEnemy = new CloseCombatEnemy();
-    return closeCombatEnemy;
+Monster *MonsterFactory::createMonster(MonsterType monsterType) {
+    switch (monsterType) {
+        case MonsterType::Artillery:
+            return new ArtilleryEnemy();
+            break;
+        case MonsterType::CloseCombat:
+            return new CloseCombatEnemy();
+            break;
+        default:
+            return nullptr;
+            break;
+    }
 }
 

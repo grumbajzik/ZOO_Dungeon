@@ -17,6 +17,8 @@ class ArtilleryEnemy : public Monster{
 
     ArtilleryEnemy();
 
+    void makeMonsterInRoom(Room *room) override;
+
     void attack() override;
 
     void deffence() override;

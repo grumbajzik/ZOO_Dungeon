@@ -15,6 +15,8 @@ class CloseCombatEnemy : public Monster{
 
     CloseCombatEnemy();
 
+    void makeMonsterInRoom(Room *room) override;
+
     char getCloseCombatChar();
 
     void deffence() override;

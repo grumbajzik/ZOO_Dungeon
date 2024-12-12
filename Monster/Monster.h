@@ -7,6 +7,18 @@
 
 #include <iostream>
 
+#include "../Map/Room.h"
+
+enum class MonsterType {
+    Artillery,CloseCombat
+};
+
+struct MonsterPosition {
+    int x;
+    int y;
+};
+
+
 class Monster {
 
 protected:
@@ -14,12 +26,16 @@ protected:
     int m_health;
     int m_damage;
     int m_experience;
+    MonsterPosition m_mosterPosition;
+
 
 public:
 
     Monster(int health, int damage, int experience);
 
     virtual ~Monster() = default;
+
+    virtual void makeMonsterInRoom(Room* room) = 0;
 
     virtual void attack() = 0;
 
