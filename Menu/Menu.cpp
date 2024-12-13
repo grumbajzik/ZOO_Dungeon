@@ -69,6 +69,10 @@ void Menu::callButton(char input) {
             m_chosenButton->execute();
             m_isRefresh = false;
         }
+        if(m_chosenButton == m_buttons.at(0)) {
+            m_chosenButton->execute();
+            m_isRefresh = false;
+        }
     }
 }
 
