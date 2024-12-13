@@ -12,6 +12,10 @@ void ExitButton::drawButton() {
 }
 
 void ExitButton::execute() {
-    std:: cout << "U have exit game." << std::endl;
+    exit(0); //vypnutí hry
+}
+
+int ExitButton::executeWithResult() {
+    return 0;
 }
 

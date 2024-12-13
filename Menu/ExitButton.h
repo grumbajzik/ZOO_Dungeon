@@ -7,6 +7,7 @@
 
 
 #include "Button.h"
+#include "Menu.h"
 /*Todo:
  * stejně jako new game button metoda execute bude obsahovat jen exit(0) předtím teoreticky jen nějáký výstup že se hra ukončuje
  * */
@@ -15,6 +16,13 @@ public:
     ExitButton();
     void drawButton() override;
     void execute() override;
+
+    int executeWithResult();
+};
+
+class ExitMenu {
+    public:
+    int executeWithResult();
 };
 
 
