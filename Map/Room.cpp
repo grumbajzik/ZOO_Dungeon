@@ -19,11 +19,17 @@ Room::Room() {
     m_originalRoom = m_room;
     m_id = s_id++;
     m_lastAttack = {-1,-1};
+    m_playerSkinInRoom = '*'; //default nastaveni
 }
 
 int Room::getId(){
     return m_id;
 }
+/*
+void Room::setPlayerSkinInRoom(Player* player) {
+    m_playerSkinInRoom = player->getPlayerSkin();
+}
+*/
 
 void Room::printRoom() {
     clearRoom();
@@ -73,7 +79,7 @@ std::vector<std::vector<std::string>> Room::getRoom() {
 void Room::updatePlayerPosition(int x,int y, bool newPosition) {
     if (newPosition) {
         m_playerPreviousMove = m_originalRoom.at(x).at(y);
-        m_room.at(x).at(y) = '*';
+        m_room.at(x).at(y) = m_playerSkinInRoom;
     } else {
         m_room.at(x).at(y) = m_playerPreviousMove;
     }

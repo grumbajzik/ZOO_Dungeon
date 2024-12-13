@@ -15,6 +15,7 @@ void ExitButton::execute() {
     exit(0); //vypnutí hry
 }
 
+
 int ExitButton::executeWithResult() {
     return 0;
 }

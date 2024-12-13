@@ -11,6 +11,7 @@ Menu::Menu() {
     m_buttons.push_back(new NewGameButton());
     m_buttons.push_back(new EditPlayerButton());
     m_buttons.push_back(new ExitButton());
+    m_isRefresh = true;
     m_firstRun = true;
     m_index = 0;
     m_chosenButton = m_buttons.at(m_index);
@@ -63,20 +64,27 @@ void Menu::switchButton(char input) {
 void Menu::callButton(char input) {
     if (input == '\r') {
         m_chosenButton->execute();
+
+        if(m_chosenButton == m_buttons.at(1)) {  //edit skin
+            m_chosenButton->execute();
+            m_isRefresh = false;
+        }
     }
 }
 
 void Menu::refreshMenu() {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleCursorPosition(hConsole, {0, 0});
-    std::cout << "\n" << "\n" << "\n" << std::endl;
-    for (int i = 0; i < m_buttons.size(); i++) {
-        if (i == m_index){
-            std::cout << "->";
-        }else{
-            std::cout << "  ";
+    if(m_isRefresh) {
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleCursorPosition(hConsole, {0, 0});
+        std::cout << "\n" << "\n" << "\n" << std::endl;
+        for (int i = 0; i < m_buttons.size(); i++) {
+            if (i == m_index){
+                std::cout << "->";
+            }else{
+                std::cout << "  ";
+            }
+            m_buttons.at(i)->drawButton();
         }
-        m_buttons.at(i)->drawButton();
     }
 }
 

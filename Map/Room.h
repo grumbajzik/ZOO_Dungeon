@@ -9,6 +9,7 @@
 #include <vector>
 #include <windows.h>
 #include "mutex"
+//#include "../Player/Player.h"
 
 
 class Room{
@@ -28,11 +29,13 @@ public:
     int getSizeOfRoomX();
     int getSizeOfRoomY();
 
+    //void setPlayerSkinInRoom(Player* player);
 
 private:
     std::mutex m_consoleMutex;
     std::vector<std::vector<std::string>> m_room;
     std::vector<std::vector<std::string>> m_originalRoom;
+    char m_playerSkinInRoom;
     static int s_id;
     int m_id ;
     std::pair<int,int> m_lastAttack; //na uchovani posledniho utoku na blizko

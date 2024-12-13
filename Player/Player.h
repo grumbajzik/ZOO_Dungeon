@@ -16,12 +16,13 @@ struct PlayerPosition {
 };
 
 class Player {
+
+    char m_playerSkin;
+
 protected:
     int m_health;
     float m_strength;
     float m_deffence;
-    static int s_level;
-    int m_expirience;
     PlayerPosition m_position;
 
 public:
@@ -29,6 +30,10 @@ public:
     Player(float health, float strength, float defence);
 
     void move(Room* room,unsigned char input);
+
+    void setPlayerSkin(char skin);
+
+    char getPlayerSkin();
 
     virtual void attack(Room* room,unsigned char input) = 0;
 

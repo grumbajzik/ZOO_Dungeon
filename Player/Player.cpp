@@ -7,21 +7,27 @@
 
 Player::Player(float health, float strength, float defence) {
     m_position = {3,3};
-    m_expirience = 0;
     m_deffence = defence;
     m_health = health;
     m_strength = strength;
+    m_playerSkin = '*';
 }
 
 void Player::setHealth(int health) {
     m_health = health;
 }
 
+void Player::setPlayerSkin(char skin) {
+    m_playerSkin = skin;
+}
+
+char Player::getPlayerSkin() {
+    return m_playerSkin;
+}
+
 bool Player::isAlive() {
     return m_health > 0;
 }
-
-
 
 int Player::getPositionX() {
     return m_position.x;
@@ -78,4 +84,3 @@ void Player::printInformation() {
 
 }
 
-int Player::s_level = 1;
