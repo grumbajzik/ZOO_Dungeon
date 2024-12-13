@@ -16,7 +16,4 @@ void ExitButton::execute() {
 }
 
 
-int ExitButton::executeWithResult() {
-    return 0;
-}
 

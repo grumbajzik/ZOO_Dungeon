@@ -8,7 +8,11 @@ NewGameButton::NewGameButton() {
 }
 
 void NewGameButton::execute() {
-    std::cout << "New game." << std::endl;
+    system("cls");
+    std::cout << "Choose a character." << std::endl;
+    if (execute() ) {
+        std::cout << "Ahoj" << std::endl;
+    }
 }
 
 void NewGameButton::drawButton() {
