@@ -5,6 +5,7 @@
 #ifndef DUNGEON_MENU_H
 #define DUNGEON_MENU_H
 #include <vector>
+#include <windows.h>
 
 #include "EditPlayerButton.h"
 #include "ExitButton.h"
@@ -24,21 +25,18 @@ class Menu {
     std::vector<Button *> m_buttons;
     Button* m_chosenButton;
     int m_index;
-    bool firstRun;
+    bool m_firstRun;
 
-
-
-
-
-public:
-
-    Menu();
-    void runMenu(char input);
-    ~Menu();
     void printMenu();
     void callButton(char input);
     void switchButton(char input);
     void refreshMenu();
+
+public:
+
+    Menu();
+    ~Menu();
+    void runMenu(char input);
 };
 
 

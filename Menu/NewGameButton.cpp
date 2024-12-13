@@ -5,8 +5,6 @@
 #include "NewGameButton.h"
 
 NewGameButton::NewGameButton() {
-
-
 }
 
 void NewGameButton::execute() {

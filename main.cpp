@@ -28,10 +28,10 @@ int main() {
     MonsterFactory* monsterFactory = new MonsterFactory();
     Player* player = nullptr;
 
-    menu->printMenu();
+    unsigned char input;
     while (true) {
-        unsigned char input = _getch();
-        menu->switchButton(input);
+        menu->runMenu(input);
+        input = _getch();
     }
 
     char choice;

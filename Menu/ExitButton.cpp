@@ -5,7 +5,6 @@
 #include "ExitButton.h"
 
 ExitButton::ExitButton() {
-
 }
 
 void ExitButton::drawButton() {

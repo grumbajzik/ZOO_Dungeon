@@ -4,7 +4,6 @@
 
 #include "EditPlayerButton.h"
 EditPlayerButton::EditPlayerButton() {
-
 }
 
 void EditPlayerButton::execute() {
@@ -12,7 +11,7 @@ void EditPlayerButton::execute() {
 }
 
 void EditPlayerButton::drawButton() {
-    std::cout << std::endl << "Choose a skin" << std::endl;
+    std::cout << "Choose a skin" << std::endl;
 }
 
 
