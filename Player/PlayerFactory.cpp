@@ -7,10 +7,10 @@
 
 
 Player *PlayerFactory::createPlayer(int index) {
-    if (index == 1) {
+    if (index == 0) {
         return new Archer();
     }
-    if (index == 2) {
+    if (index == 1) {
         return new Warrior();
     }
     return nullptr;

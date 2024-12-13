@@ -21,7 +21,7 @@ void EditPlayerButton::drawButton() {
 }
 
 void EditPlayerButton::execute() {
-    switchSkin();
+    selectSkin();
 
 }
 
@@ -45,10 +45,19 @@ void EditPlayerButton::switchChoice(char input) {
     }
 }
 
-void EditPlayerButton::switchSkin() {
+void EditPlayerButton::selectSkin() {
     system("cls");
     char input;
     m_chosenSkin = ' ';
+    std::cout << "CHOOSE YOUR SKIN" << std::endl << std::endl;
+    for (int i = 0; i < m_playerSkin.size(); i++) {
+        if (i == m_indexOfSkin){
+            std::cout << "->";
+        } else {
+            std::cout << "  ";
+        }
+        std::cout << m_playerSkin[i] << std::endl << std::endl;
+    }
 
     while (input != '\r') {
         input = _getch();

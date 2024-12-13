@@ -3,18 +3,30 @@
 //
 
 #include "NewGameButton.h"
+#include "..\Monster\Monster.h"
+#include "..\Monster\MonsterFactory.h"
+#include "..\Map\Room.h"
+#include "..\Monster\Trap.h"
+
+
+void backgroundRefresh(Room* room) {
+    while (true) {
+        room->refreshRoom();
+        std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Pauza mezi vykreslením
+    }
+}
+
 
 NewGameButton::NewGameButton() {
-    m_indexOfPlayer = 1;
+    m_indexOfPlayer = 0;
     m_newPlayer.push_back("Archer");
     m_newPlayer.push_back("Warrior");
-
+    m_playerFactory = new PlayerFactory();
 }
 
 void NewGameButton::execute() {
-    switchPlayer();
-    createHero();
-
+    selectPlayer();
+    runGame();
 }
 
 void NewGameButton::drawButton() {
@@ -31,7 +43,7 @@ void NewGameButton::switchChoice(char input) {
             break;
         }
         case 80: {  // down
-            if (m_indexOfPlayer < 3) {
+            if (m_indexOfPlayer < 1) {
                 m_indexOfPlayer++;
             }
             break;
@@ -41,8 +53,11 @@ void NewGameButton::switchChoice(char input) {
     }
 }
 
-void NewGameButton::switchPlayer() {
+void NewGameButton::selectPlayer() {
     system("cls");
+    std::cout << "CHOOSE YOUR CLASS" << std::endl << std::endl;
+    std::cout << "->" << m_newPlayer[0] << std::endl << std::endl;
+    std::cout << "  " << m_newPlayer[1];
     char input;
     while (input != '\r') {
         input = _getch();
@@ -61,8 +76,46 @@ void NewGameButton::switchPlayer() {
     }
 }
 
-Player* NewGameButton::createHero(PlayerFactory *playerFactory) {
-    playerFactory->createPlayer(m_indexOfPlayer);
+Player *NewGameButton::createPlayer() {
+    return m_playerFactory->createPlayer(m_indexOfPlayer);
+}
+
+void NewGameButton::runGame() {
+    Room* room = new Room();
+    Trap* trap = new Trap();
+    Player *player = createPlayer();
+
+    MonsterFactory* monsterFactory = new MonsterFactory();
+    Monster* ar = monsterFactory->createMonster(MonsterType::Artillery);
+    Monster* cl = monsterFactory->createMonster(MonsterType::CloseCombat);
+
+
+    trap->makeTrapInRoom(room);
+    ar->makeMonsterInRoom(room);
+    cl->makeMonsterInRoom(room);
+    player->move(room,'f');
+    room->printRoom();
+    std::thread refreshThread(backgroundRefresh, room);
+    refreshThread.detach();
+
+    while (player->isAlive()) {
+        unsigned char input = _getch();
+
+        player->attack(room,input);
+        player->move(room,input);
+
+        trap->treatPlayer(player);
+        //cl->attack(player,room);
+        //ar->attack(player,room);
+    }
+    system("cls");
+    std::cout << "YOU DIED" << std::endl;
+    system("pause");
+
+    delete room;
+    delete player;
+    delete trap;
+    delete monsterFactory;
 }
 
 

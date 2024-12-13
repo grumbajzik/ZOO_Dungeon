@@ -64,16 +64,9 @@ void Menu::switchButton(char input) {
 void Menu::callButton(char input) {
     if (input == '\r') {
         m_chosenButton->execute();
-
-        if(m_chosenButton == m_buttons.at(1)) {  //edit skin
-            m_chosenButton->execute();
-            m_isRefresh = false;
-        }
-        if(m_chosenButton == m_buttons.at(0)) {
-            m_chosenButton->execute();
-            m_isRefresh = false;
-        }
+        m_isRefresh = false;
     }
+
 }
 
 void Menu::refreshMenu() {

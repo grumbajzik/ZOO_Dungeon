@@ -19,13 +19,12 @@ class EditPlayerButton : public Button{
     char m_chosenSkin;
 
     void switchChoice(char input);
-    void switchSkin();
+    void selectSkin();
 
 public:
     EditPlayerButton();
     void drawButton() override;
     void execute() override;
-
 
 };
 

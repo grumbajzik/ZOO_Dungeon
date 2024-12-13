@@ -8,22 +8,25 @@
 #include <vector>
 #include "Button.h"
 #include <conio.h>
+#include <thread>
 
 #include "../Player/PlayerFactory.h"
 
 class NewGameButton : public Button{
+    PlayerFactory* m_playerFactory;
     std::vector<std::string> m_newPlayer;
     int m_indexOfPlayer;
+
+private:
+    void runGame();
     void switchChoice(char input);
-    void switchPlayer();
+    void selectPlayer();
+    Player* createPlayer();
 
 public:
-    Player* createHero(PlayerFactory* playerFactory);
     NewGameButton();
+
     void drawButton() override;
-
-
-
 
     void execute() override;
 
