@@ -16,13 +16,16 @@ class EditPlayerButton : public Button{
 
     std::vector<char> m_playerSkin;
     int m_indexOfSkin;
+    char m_chosenSkin;
+
+    void switchChoice(char input);
+    void switchSkin();
 
 public:
     EditPlayerButton();
     void drawButton() override;
     void execute() override;
 
-    void switchChoice(char input);
 
 };
 
