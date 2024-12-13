@@ -4,6 +4,8 @@
 
 #ifndef DUNGEON_BUTTON_H
 #define DUNGEON_BUTTON_H
+#include <string>
+#include <iostream>
 
 
 /*TODO: tady uděláš vlastnosti tlačítka jako je text a jestli je aktivní.
@@ -17,7 +19,10 @@
 
 
 class Button{
-
+public:
+ Button();
+ virtual void drawButton() = 0;
+ virtual void execute() = 0;
 };
 
 

@@ -13,7 +13,10 @@
 
 
 class NewGameButton : public Button{
-
+public:
+    NewGameButton();
+    void drawButton() override;
+    void execute() override;
 };
 
 

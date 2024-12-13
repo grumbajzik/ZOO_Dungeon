@@ -27,13 +27,13 @@ int main() {
     Trap* trap = new Trap();
     MonsterFactory* monsterFactory = new MonsterFactory();
     Player* player = nullptr;
-    /*
+
     menu->printMenu();
     while (true) {
         unsigned char input = _getch();
-        menu->choseCommand(input);
+        menu->switchButton(input);
     }
-    */
+
     char choice;
     std::cout << "zvolte postavu a/w"<<std::endl;
     std::cin >> choice;
