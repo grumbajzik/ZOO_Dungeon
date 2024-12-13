@@ -21,7 +21,9 @@ public:
     EditPlayerButton();
     void drawButton() override;
     void execute() override;
-    //void switchChoice(char input);
+
+    void switchChoice(char input);
+
 };
 
 

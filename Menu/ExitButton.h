@@ -14,7 +14,6 @@ public:
     ExitButton();
     void drawButton() override;
     void execute() override;
-
     int executeWithResult();
 };
 
