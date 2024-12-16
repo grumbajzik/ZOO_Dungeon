@@ -14,13 +14,8 @@ public:
     ExitButton();
     void drawButton() override;
     void execute() override;
-    int executeWithResult();
 };
 
-class ExitMenu {
-    public:
-    int executeWithResult();
-};
 
 
 #endif //DUNGEON_EXITBUTTON_H
