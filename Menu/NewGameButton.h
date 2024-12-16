@@ -24,6 +24,7 @@ private:
     Player* createPlayer();
 
 public:
+
     NewGameButton();
 
     void drawButton() override;

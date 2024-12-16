@@ -106,7 +106,7 @@ void NewGameButton::runGame() {
 
         trap->treatPlayer(player);
         //cl->attack(player,room);
-        //ar->attack(player,room);
+        ar->attack(player,room);
     }
     system("cls");
     std::cout << "YOU DIED" << std::endl;

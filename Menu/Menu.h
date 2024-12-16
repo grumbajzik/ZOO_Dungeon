@@ -31,6 +31,7 @@ public:
     Menu();
     ~Menu();
     void runMenu(char input);
+    void setFirstRun();
 };
 
 

@@ -10,6 +10,7 @@
  */
 #include <vector>
 
+#include "Menu.h"
 #include "Button.h"
 
 class EditPlayerButton : public Button{
@@ -20,6 +21,7 @@ class EditPlayerButton : public Button{
 
     void switchChoice(char input);
     void selectSkin();
+    void goBackToMenu();
 
 public:
     EditPlayerButton();

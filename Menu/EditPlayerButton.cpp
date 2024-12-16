@@ -13,7 +13,6 @@ EditPlayerButton::EditPlayerButton() {
     m_playerSkin.push_back('+');
     m_playerSkin.push_back('%');
     m_chosenSkin = m_playerSkin.at(0);
-
 }
 
 void EditPlayerButton::drawButton() {
@@ -22,7 +21,7 @@ void EditPlayerButton::drawButton() {
 
 void EditPlayerButton::execute() {
     selectSkin();
-
+    goBackToMenu();
 }
 
 void EditPlayerButton::switchChoice(char input) {
@@ -77,6 +76,12 @@ void EditPlayerButton::selectSkin() {
     m_chosenSkin = m_playerSkin.at(m_indexOfSkin);
 }
 
+void EditPlayerButton::goBackToMenu() {
+    //TODO nejde se vratit zpatky do hlavniho menu a skin se jeste nenastavuje 
+    system("cls");
+    std::cout << "Going back to menu" << std::endl;
+    std::cout << m_chosenSkin;
+}
 
 
 

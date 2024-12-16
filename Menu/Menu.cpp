@@ -97,7 +97,10 @@ void Menu::runMenu(char input) {
 }
 
 
-
+void Menu::setFirstRun() {
+    m_firstRun = true;
+    m_isRefresh = true;
+}
 
 
 

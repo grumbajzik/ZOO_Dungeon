@@ -45,7 +45,7 @@ void ArtilleryEnemy::attack(Player* player,Room* room) {
 
     room->drawArtilleryAttack(m_artilleryAttackPos.x,m_artilleryAttackPos.y,true);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    room->drawArtilleryAttack(m_artilleryAttackPos.x,m_artilleryAttackPos.y,true);
+    room->drawArtilleryAttack(m_artilleryAttackPos.x,m_artilleryAttackPos.y,false);
     if(m_artilleryAttackPos.x == player->getPositionX() && m_artilleryAttackPos.y == player->getPositionY()) {
         player->setHealth(healthAfterDmg);
     }
