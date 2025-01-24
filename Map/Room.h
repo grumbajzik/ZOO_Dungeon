@@ -43,6 +43,11 @@ private:
     std::string m_attackPrevoiousSign = " ";
     std::vector<std::vector<std::string>> generateRoom();
     void clearRoom();
+
+
+    // utoky bose
+public:
+    void drawAttackFromBoss(int x,int y, bool attack);
 };
 
 #endif

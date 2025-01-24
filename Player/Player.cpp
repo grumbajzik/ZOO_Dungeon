@@ -81,6 +81,11 @@ void Player::move(Room* room, unsigned char input) {
 }
 
 void Player::printInformation() {
+    std::cout << "Heakth: " << m_health << std::endl;
+    std::cout << "Strength: " << m_strength << std::endl;
+    std::cout << "Defence: " << m_deffence << std::endl;
+    std::cout << "Position X: " << m_position.x << "Position Y: " << m_position.y << std::endl;
+
 
 }
 

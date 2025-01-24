@@ -66,7 +66,6 @@ void Menu::callButton(char input) {
         m_chosenButton->execute();
         m_isRefresh = false;
     }
-
 }
 
 void Menu::refreshMenu() {

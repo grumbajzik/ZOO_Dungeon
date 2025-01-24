@@ -56,8 +56,10 @@ void Room::refreshRoom() {
 
 std::vector<std::vector<std::string>> Room::generateRoom() {
     std::srand(std::time(nullptr));
-    int rows = rand() % 4 + 13;
-    int cols = rand() % 4 + 13;
+    // int rows = rand() % 4 + 13;
+    // int cols = rand() % 4 + 13;
+    int rows = 11;
+    int cols = 11;
 
     std::vector<std::vector<std::string>> newRoom(rows, std::vector<std::string>(cols));
     for (int i = 0; i < rows; i++){
@@ -165,6 +167,15 @@ void Room::drawArtilleryAttack(int x, int y, bool warning) {
         m_room.at(x).at(y) = '@';
     }
 }
+
+void Room::drawAttackFromBoss(int x, int y, bool attack) {
+    if (attack) {
+        m_room.at(x).at(y) = '!';
+    }else {
+        m_room.at(x).at(y) = ' ';
+    }
+}
+
 
 
 

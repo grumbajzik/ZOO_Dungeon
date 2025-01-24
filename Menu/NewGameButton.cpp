@@ -3,11 +3,14 @@
 //
 
 #include "NewGameButton.h"
+
+#include "../Boss/Boss.h"
 #include "..\Monster\Monster.h"
 #include "..\Monster\MonsterFactory.h"
 #include "..\Map\Room.h"
 #include "..\Monster\Trap.h"
-
+#include "../Boss/Boss.h"
+#include "../Boss/Boss1.h"
 
 void backgroundRefresh(Room* room) {
     while (true) {
@@ -89,10 +92,8 @@ void NewGameButton::runGame() {
     Monster* ar = monsterFactory->createMonster(MonsterType::Artillery);
     Monster* cl = monsterFactory->createMonster(MonsterType::CloseCombat);
 
-
-    trap->makeTrapInRoom(room);
-    ar->makeMonsterInRoom(room);
-    cl->makeMonsterInRoom(room);
+    Boss1* bos = new Boss1();
+    bos->makeBossInRoom(room);
     player->move(room,'f');
     room->printRoom();
     std::thread refreshThread(backgroundRefresh, room);
@@ -103,10 +104,8 @@ void NewGameButton::runGame() {
 
         player->attack(room,input);
         player->move(room,input);
+        bos->attackInDiagonal(room);
 
-        trap->treatPlayer(player);
-        //cl->attack(player,room);
-        //ar->attack(player,room);
     }
     system("cls");
     std::cout << "YOU DIED" << std::endl;
