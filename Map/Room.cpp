@@ -172,7 +172,11 @@ void Room::drawAttackFromBoss(int x, int y, bool attack) {
     if (attack) {
         m_room.at(x).at(y) = '!';
     }else {
-        m_room.at(x).at(y) = ' ';
+        if(m_room.at(x).at(y) == "*") {
+            m_room.at(x).at(y) = '*';
+        }else {
+            m_room.at(x).at(y) = ' ';
+        }
     }
 }
 

@@ -10,6 +10,7 @@
 class Boss1 : public Boss{
 
     BossPosition position;
+    BossPosition attackPosition;
 
     public:
 
@@ -17,8 +18,9 @@ class Boss1 : public Boss{
 
     void makeBossInRoom(Room *room) override;
 
-    void attackInDiagonal(Room *room);
-
+    void attackOnDiagonal(Room *room);
+    void attackOnHorizontally(Room *room);
+    void attackAroundBoss(Room *room);
 
 
 };

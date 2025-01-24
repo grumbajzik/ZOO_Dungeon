@@ -104,7 +104,8 @@ void NewGameButton::runGame() {
 
         player->attack(room,input);
         player->move(room,input);
-        bos->attackInDiagonal(room);
+        bos->attackOnDiagonal(room);
+        bos->attackOnHorizontally(room);
 
     }
     system("cls");
